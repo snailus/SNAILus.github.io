@@ -28,6 +28,10 @@ ul{
 	padding:0;
 	}
 /*----start-container----*/
+.middle{
+    display: block;
+}
+
 /*-----start-header----*/
 .bg{
 	background:url(../images/banner.jpg) no-repeat 0px 0px;
