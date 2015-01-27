@@ -33,6 +33,18 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		<!----webfonts--->
 		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
 		<!---//webfonts--->
+        
+        <!----Back to top--->
+        <link rel="stylesheet" href="css/backtop.css"> <!-- Gem style -->
+        <script src="js/modernizr.js"></script> <!-- Modernizr -->
+        <!----//Back to top--->
+        
+        <!----Tag manager--->
+        <link rel="stylesheet" href="css/tagmanager.css">
+        <script src="js/tagmanager.js"></script> 
+       
+        <!----//Tag manager--->
+        
 	</head>
 	<body>
 		<div class="bg">
@@ -64,34 +76,153 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						<div class="clearfix"> </div>
 					</div>
 				</div>
-				<!----- banner ---->
-				<!----- banner ---->
-                <!--
-				<div class="banner text-right">
-					<div class="container">
-						<div class="clearfix"> </div>
-					</div>
-				</div>
-                -->
-				<!----- banner ---->
 			</div>
 			<!----- //End-header---->
 			<!----- mid-grids ----->
 			<div class="mid-grids">
 				<div class="container">
 					<div class="mid-grid">
-							<div class="col-md-8 mid-grid-right" data-wow-delay="0.4s">
-                                <div class="message">     
-                                    <img src='images/imageEW.png' alt='exclamation'>
-                                    <h1>En construction</h1>
-                                    <h2>snail.recherche.usherbrooke.ca est en maintenance</h2>
-                                </div>
-							</div>
+						<div class="listing" id="publicationsList">
+                        
+                            <form name="searchform">
+                                Publication title:<br>
+                                <input type="text" name="title" >
+                                <br>
+                                
+                                Author name:<br>
+                                <input type="text" name="author" >
+                                <br>
+                                
+                                Co-author name:<br>
+                                <input type="text" name="coauthor" value="">
+                                <br>
+                                
+                                Release date:<br>
+                                <select name="release">
+                                    <option value="">All</option>
+                                    <option value="2015">2015</option>
+                                    <option value="2014">2014</option>
+                                    <option value="2013">2013</option>
+                                    <option value="2012">2012</option>
+                                </select>
+                                <br><br>
+                                
+                                <input type="text" name="tags" placeholder="Tags" class="tm-input"/>
+                                <br><br>
+                                <script>
+                                    jQuery(".tm-input").tagsManager({
+                                        hiddenTagListName : "hiddenTag"
+                                    });
+                                </script>                                 
+                                <input type="button" value="Submit" onclick="validateForm()">                            
+                                <input type="reset" value="clear" onClick="clearForm()">  
+                            </form>
+                            <br><br>
+                                                     
+                                       
+                            <ul class="list">
+                                <li>
+                                    <h1 class="title">EEG + fMRI on human brain.</h1>
+                                    <h3 class="author">Jonny Stromberg</h3>
+                                    <p class="coauthor">Alexandre</p>
+                                    <p class="release">2014</p>
+                                    <p class="tag">EEG fMRI Human</p>                             
+                                </li>
+                                <li>
+                                    <h1 class="title">Test 1 </h1>
+                                    <h3 class="author">Jonas Arnklint</h3>
+                                    <p class="coauthor">Maxime</p>
+                                    <p class="release">1985</p>
+                                    <p class="tag">EEG Human</p>
+                                </li>
+                                <li>
+                                    <h1 class="title">Test 2</h1>
+                                    <h3 class="author">Martina Elm</h3>
+                                    <p class="coauthor">Alexandre</p>
+                                    <p class="release">1986</p>
+                                    <p class="tag">MRI Animal</p>
+                                </li>
+                                <li>
+                                    <h1 class="title"></h1>
+                                    <h3 class="author">Gustaf Lindqvist</h3>
+                                    <p class="coauthor">Maxime</p>
+                                    <p class="release">1983</p>
+                                    <p class="tag">SWI Vascular</p>
+                                </li>
+                            </ul>                        
+                        </div>  
+                        
+                        <script type="text/javascript" src="js/list.js"></script>
+                        <script type="text/javascript">
+                            var options = {
+                              valueNames: [ 'title','author','coauthor', 'release','tag' ]
+                            };
+
+                            var userList = new List('publicationsList', options);
+                            
+                            function clearForm(){              
+                                jQuery(".tm-input").tagsManager('empty');                            
+                                document.forms["searchform"].reset()
+                                validateForm();
+                            }
+                            
+                            function validateForm(){
+                                var title = document.forms["searchform"].elements["title"].value;
+                                var author = document.forms["searchform"].elements["author"].value;
+                                var coauthor = document.forms["searchform"].elements["coauthor"].value;
+                                var release = document.forms["searchform"].elements["release"].value;        
+                                var tags = document.forms["searchform"].elements["hiddenTag"].value;
+                                
+                                if(tags)
+                                    var res = tags.split(",");  
+                               
+                                userList.filter(function(item){
+                                    
+                                    if(res){         
+                                    
+                                        var tagArray = [];
+                                        
+                                        res.forEach(function(entry){
+                                            if(item.values().tag.toLowerCase().search(entry.toLowerCase()) >= 0){
+                                                tagArray.push(true);                                                
+                                            }else{
+                                                tagArray.push(false);
+                                            }                                            
+                                        });
+                                        
+                                        // With tagArray, contain only asked tag, or at least one ?
+                                        // Currently asking for all.
+                                        
+                                        return ( 
+                                            item.values().title.toLowerCase().search(title.toLowerCase()) >= 0 &&
+                                            item.values().author.toLowerCase().search(author.toLowerCase()) >= 0 &&
+                                            item.values().coauthor.toLowerCase().search(coauthor.toLowerCase()) >= 0 &&
+                                            item.values().release.search(release) >= 0 &&
+                                            tagArray.every(Boolean)
+                                        )
+                                    }else
+                                    {
+                                        return ( 
+                                            item.values().title.toLowerCase().search(title.toLowerCase()) >= 0 &&
+                                            item.values().author.toLowerCase().search(author.toLowerCase()) >= 0 &&
+                                            item.values().coauthor.toLowerCase().search(coauthor.toLowerCase()) >= 0 &&
+                                            item.values().release.search(release) >= 0 
+                                        )
+                                    }
+                                
+                                });                                
+                            }
+                            
+                        </script>
 						<div class="clearfix"> </div>
 					</div>
 				</div>
 			</div>
 			<!----- mid-grids ----->
+            
+            <a href="#0" class="cd-top">Top</a>
+            <script src="js/backtop.js"></script> <!-- Gem jQuery -->
+            
 			<!---- footer ---->
 			<div class="footer">
 				<div class="container">
@@ -128,7 +259,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						</div>
 						<div class="clearfix"> </div>
 					</div>
-					<p class="copy-right wow bounceInRight" data-wow-delay="0.4s"">2014 &copy; Design by <a href="http://w3layouts.com/">W3layouts</a></p>
+					<p class="copy-right wow fadeInRight" data-wow-delay="0.4s"">2014 &copy; Design by <a href="http://w3layouts.com/">W3layouts</a></p>
 				</div>
 			</div>
 			<!---- footer ---->
