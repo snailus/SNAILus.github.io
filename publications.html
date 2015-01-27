@@ -44,7 +44,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <script src="js/tagmanager.js"></script> 
        
         <!----//Tag manager--->
-        
+        <link rel="stylesheet" href="css/publication.css">
 	</head>
 	<body>
 		<div class="bg">
@@ -53,7 +53,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			<div id="home" class="header" data-wow-delay="0.4s>
 					<div class="top-header">
 						<div class="logo" data-wow-delay="0.4s">
-							<a href="#"><img src="images/logo4.png" title="dreams" /></a>
+							<a href="index.html"><img src="images/logo4.png" title="dreams" /></a>
 						</div>
 						<!----start-top-nav---->
 						 <nav class="top-nav" data-wow-delay="0.4s">
@@ -85,70 +85,62 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						<div class="listing" id="publicationsList">
                         
                             <form name="searchform">
-                                Publication title:<br>
-                                <input type="text" name="title" >
+                                <input class="searchbox" type="text" name="title" placeholder="Publication title" >                                
+                                <input class="searchbox" type="text" name="author" placeholder="Author name">                                
+                                <input class="searchbox" type="text" name="coauthor" placeholder="Co-author name">                                
                                 <br>
                                 
-                                Author name:<br>
-                                <input type="text" name="author" >
-                                <br>
-                                
-                                Co-author name:<br>
-                                <input type="text" name="coauthor" value="">
-                                <br>
-                                
-                                Release date:<br>
+                                Release date:
                                 <select name="release">
                                     <option value="">All</option>
                                     <option value="2015">2015</option>
                                     <option value="2014">2014</option>
                                     <option value="2013">2013</option>
                                     <option value="2012">2012</option>
-                                </select>
-                                <br><br>
-                                
-                                <input type="text" name="tags" placeholder="Tags" class="tm-input"/>
-                                <br><br>
+                                    <option value="under">Under 2012</option>
+                                </select>                                
+                                <input type="text" name="tags" placeholder="Tags" class="tm-input"/>                            
+                               
                                 <script>
                                     jQuery(".tm-input").tagsManager({
                                         hiddenTagListName : "hiddenTag"
                                     });
-                                </script>                                 
-                                <input type="button" value="Submit" onclick="validateForm()">                            
-                                <input type="reset" value="clear" onClick="clearForm()">  
+                                </script>  
+
+                                 <br><br>    
+                                <input class="button" type="button" value="Submit" onclick="validateForm()">                            
+                                <input class="button" type="reset" value="clear" onClick="clearForm()">  
                             </form>
-                            <br><br>
-                                                     
+                            <br><br>                                                     
                                        
                             <ul class="list">
                                 <li>
-                                    <h1 class="title">EEG + fMRI on human brain.</h1>
-                                    <h3 class="author">Jonny Stromberg</h3>
-                                    <p class="coauthor">Alexandre</p>
-                                    <p class="release">2014</p>
-                                    <p class="tag">EEG fMRI Human</p>                             
+                                    <a href="#"><img src="images/smallpdf.png" class="img_left"/></a>
+                                    <p class="title">EEG + fMRI on human brain.</p>
+                                    <p class="author">Kevin Whittingstall</p>
+                                    <p class="coauthor"></p>
+                                    <p class="release">2014</p> 
+                                    <br> <!-- Seperate Tags from publications informations -->                                    
+                                    <p class="tag"><span class="tag">EEG</span><span class="tag">fMRI</span><span class="tag">Human</span></p>                             
                                 </li>
                                 <li>
-                                    <h1 class="title">Test 1 </h1>
-                                    <h3 class="author">Jonas Arnklint</h3>
-                                    <p class="coauthor">Maxime</p>
-                                    <p class="release">1985</p>
-                                    <p class="tag">EEG Human</p>
+                                    <a href="#"><img src="images/smallpdf.png" class="img_left"/></a>
+                                    <p class="title">Tractography with DTI.</p>
+                                    <p class="author">Maxime Chamberland</p>
+                                    <p class="coauthor">Kevin Whittingstall, Michaël Bernier</p>
+                                    <p class="release">2012</p>
+                                    <br> <!-- Seperate Tags from publications informations -->
+                                    <p class="tag"><span class="tag">Tractography</span><span class="tag">Brain</span></p>
                                 </li>
                                 <li>
-                                    <h1 class="title">Test 2</h1>
-                                    <h3 class="author">Martina Elm</h3>
-                                    <p class="coauthor">Alexandre</p>
-                                    <p class="release">1986</p>
-                                    <p class="tag">MRI Animal</p>
+                                    <p class="title">Discovery of a new land.</p>
+                                    <p class="author">Kevin Whittingstall</p>
+                                    <p class="coauthor">Christophe Colomb</p>
+                                    <p class="release">1604</p>
+                                    <br> <!-- Seperate Tags from publications informations -->
+                                    <p class="tag"><span class="tag">MRI</span><span class="tag">Animal</span></p>
                                 </li>
-                                <li>
-                                    <h1 class="title"></h1>
-                                    <h3 class="author">Gustaf Lindqvist</h3>
-                                    <p class="coauthor">Maxime</p>
-                                    <p class="release">1983</p>
-                                    <p class="tag">SWI Vascular</p>
-                                </li>
+                                
                             </ul>                        
                         </div>  
                         
@@ -173,6 +165,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                 var release = document.forms["searchform"].elements["release"].value;        
                                 var tags = document.forms["searchform"].elements["hiddenTag"].value;
                                 
+                                
+                                
                                 if(tags)
                                     var res = tags.split(",");  
                                
@@ -190,24 +184,42 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                             }                                            
                                         });
                                         
+                                        // TODO :
                                         // With tagArray, contain only asked tag, or at least one ?
                                         // Currently asking for all.
-                                        
-                                        return ( 
-                                            item.values().title.toLowerCase().search(title.toLowerCase()) >= 0 &&
-                                            item.values().author.toLowerCase().search(author.toLowerCase()) >= 0 &&
-                                            item.values().coauthor.toLowerCase().search(coauthor.toLowerCase()) >= 0 &&
-                                            item.values().release.search(release) >= 0 &&
-                                            tagArray.every(Boolean)
-                                        )
-                                    }else
-                                    {
-                                        return ( 
-                                            item.values().title.toLowerCase().search(title.toLowerCase()) >= 0 &&
-                                            item.values().author.toLowerCase().search(author.toLowerCase()) >= 0 &&
-                                            item.values().coauthor.toLowerCase().search(coauthor.toLowerCase()) >= 0 &&
-                                            item.values().release.search(release) >= 0 
-                                        )
+                                        // and right now, it's text searching, do we want exact tags ?
+                                        if(release == "under")                                        
+                                            return ( 
+                                                item.values().title.toLowerCase().search(title.toLowerCase()) >= 0 &&
+                                                item.values().author.toLowerCase().search(author.toLowerCase()) >= 0 &&
+                                                item.values().coauthor.toLowerCase().search(coauthor.toLowerCase()) >= 0 &&
+                                                item.values().release < 2012 &&
+                                                tagArray.every(Boolean)
+                                            )
+                                        else                                       
+                                            return ( 
+                                                item.values().title.toLowerCase().search(title.toLowerCase()) >= 0 &&
+                                                item.values().author.toLowerCase().search(author.toLowerCase()) >= 0 &&
+                                                item.values().coauthor.toLowerCase().search(coauthor.toLowerCase()) >= 0 &&
+                                                item.values().release.search(release) >= 0 &&
+                                                tagArray.every(Boolean)
+                                            )
+                                    }else{
+                                    
+                                        if(release == "under")
+                                            return ( 
+                                                item.values().title.toLowerCase().search(title.toLowerCase()) >= 0 &&
+                                                item.values().author.toLowerCase().search(author.toLowerCase()) >= 0 &&
+                                                item.values().coauthor.toLowerCase().search(coauthor.toLowerCase()) >= 0 &&
+                                                item.values().release < 2012 
+                                            )
+                                        else
+                                            return ( 
+                                                item.values().title.toLowerCase().search(title.toLowerCase()) >= 0 &&
+                                                item.values().author.toLowerCase().search(author.toLowerCase()) >= 0 &&
+                                                item.values().coauthor.toLowerCase().search(coauthor.toLowerCase()) >= 0 &&
+                                                item.values().release.search(release) >= 0 
+                                            )
                                     }
                                 
                                 });                                

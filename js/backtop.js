@@ -12,7 +12,6 @@ jQuery(document).ready(function($){
 	$(window).scroll(function(){
     
         if (document.body.scrollHeight == document.body.scrollTop + window.innerHeight) {
-            console.log('On bottom');
             $back_to_top.addClass('cd-is-visible');
         }
         else

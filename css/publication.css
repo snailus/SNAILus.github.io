@@ -1,0 +1,79 @@
+
+#publicationsList form{
+    padding:10px;
+}
+
+#publicationsList .button{
+}
+
+#publicationsList form input.searchbox{
+    padding:4px;
+    margin:5px;
+    margin-bottom:20px;
+}
+
+#publicationsList ul {
+    list-style-type: none;
+}
+
+#publicationsList img {
+    margin-right:20px;
+    margin-bottom:5px;
+}
+
+#publicationsList ul li{
+    padding:10px;
+}
+#publicationsList ul li.firstline{
+    display:inline-block;
+}
+
+#publicationsList ul li span.arrow{
+    width: 22px;
+	height: 22px;
+	background: url(../images/splits.png) -13px -56px;
+	display: block;
+	float: left;
+}
+
+
+#publicationsList ul li p.title{
+    color:#fe5433;
+	font-weight:300;
+	margin:0;
+	line-height:1.5em;
+	font-size:25px;
+    
+}
+
+#publicationsList ul li p.author{
+	font-weight:300;
+	margin:0;
+	line-height:1.5em;
+	font-size:18px;
+}
+
+#publicationsList ul li p{
+	font-weight:300;
+	margin:0;
+	line-height:1.5em;
+	font-size:13px;
+    display:inline-block;
+}
+
+#publicationsList ul li p span.tag{
+    background-color: #fd9783;
+    border: #bbbbbb 1px solid;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+    display: inline-block;
+    border-radius: 3px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 12px;
+    margin: 0 2px 2px 0;
+    padding: 3px;
+    text-decoration: none;
+    transition: border 0.2s linear 0s, box-shadow 0.2s linear 0s;
+    -moz-transition: border 0.2s linear 0s, box-shadow 0.2s linear 0s;
+    -webkit-transition: border 0.2s linear 0s, box-shadow 0.2s linear 0s;
+    vertical-align: middle;
+}
