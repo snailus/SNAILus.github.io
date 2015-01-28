@@ -19,12 +19,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		<script>
 		 new WOW().init();
 		</script>
-		<!---- animated-css ---->
-		  <!---- start-smoth-scrolling---->
-		<script type="text/javascript" src="js/move-top.js"></script>
-		<script type="text/javascript" src="js/easing.js"></script>
-		
-		 <!---- start-smoth-scrolling---->
+		<!---- animated-css ---->		
 		<link href="css/style.css" rel='stylesheet' type='text/css' />
    		 <!-- Custom Theme files -->
 		<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -47,26 +42,28 @@ License URL: http://creativecommons.org/licenses/by/3.0/
        
         <!----//Tag manager--->
         
-        
+        <!----Search engine + List--->
         <link rel="stylesheet" href="css/publication.css">
         <script>
             function displayAdv(){
+                
+                clearForm();
+                
                 var d = document.getElementById('Advanced').style.display;
                 
                 if(d == 'none'){ 
                     document.getElementById('Advanced').style.display = 'block' 
-                    //$('a#advancedLink').text('hide filter');
                     
                     document.getElementById('NormalSearch').style.display = 'none';
                 }else{
                     document.getElementById('Advanced').style.display = 'none';
-                    //$('a#advancedLink').text('advanced filter');
                     
                     document.getElementById('NormalSearch').style.display = 'block'
                 }                  
             }
-        </script>
+        </script>       
         
+        <!----//Search engine + List--->
 	</head>
 	<body>
 		<div class="bg">
@@ -90,10 +87,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 							</ul>
 						</nav>
 						<script>
-					$("span.menu").click(function(){
-						$(".top-nav ul").slideToggle(200);
-					});
-				</script>
+                            $("span.menu").click(function(){
+                                $(".top-nav ul").slideToggle(200);
+                            });
+                        </script>
 
 						<div class="clearfix"> </div>
 					</div>
@@ -106,12 +103,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					<div class="mid-grid">
 						<div class="listing" id="publicationsList">
                         
-                            <form name="searchform">
+                            <form name="searchform"> 
                                 <div id="NormalSearch">
-                                    <input class="search searchbox" type="text" placeholder="Search" > 
+                                    <input id="NormalSearchInput" class="search searchbox" type="text" placeholder="Search" > 
                                     <a id="advancedLink" style="color:blue;" onclick="displayAdv()">advanced filter</a>  
-                                </div>
-                                
+                                    
+                                </div>    
                                 
                                 <div id="Advanced" style="display:none;">
                                     <a id="advancedLink" style="color:blue;" onclick="displayAdv()">hide filter</a>  
@@ -187,7 +184,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                     <p class="tag"><span class="tag">EEG</span><span class="tag">MRI</span><span class="tag">Animal</span></p>
                                 </li>
                                 
-                            </ul>                        
+                            </ul>  
+                            <div id="NoResult" style="display:none;">
+                                <p> Sorry, no publications matched your search. Please try again. </p>
+                            </div>
+                                
                         </div>  
                         
                         <script type="text/javascript" src="js/list.js"></script>
@@ -196,11 +197,23 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                               valueNames: [ 'title','author','coauthor', 'release','ptype','tag' ]
                             };
 
-                            var userList = new List('publicationsList', options);
+                            var searchList = new List('publicationsList', options);                            
+                                                        
+                            searchList.on('filterComplete',listUpdated);
+                            searchList.on('searchComplete',listUpdated);
                             
-                            function clearForm(){              
-                                jQuery(".tm-input").tagsManager('empty');                            
+                            function listUpdated(){
+                                searchList.visibleItems.length == 0 ? document.getElementById("NoResult").style.display = "block" : document.getElementById("NoResult").style.display = "none";
+                            }
+                            
+                            function clearForm(){                                                                   
+                                
+                                searchList.searched = false;
+                                searchList.update();
+                               
+                                jQuery(".tm-input").tagsManager('empty');                                 
                                 document.forms["searchform"].reset()
+                                
                                 validateForm();
                             }
                             
@@ -211,12 +224,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                 var release = document.forms["searchform"].elements["release"].value; 
                                 var pType = document.forms["searchform"].elements["ptype"].value;                                
                                 var tags = document.forms["searchform"].elements["hiddenTag"].value;
-                                       
+                                                                              
                                 if(tags)
                                     var res = tags.split(",");  
                                
-                                userList.filter(function(item){                                
-                                    if(res){         
+                                searchList.filter(function(item){                                
+                                    if(res){        
                                     
                                         var tagArray = [];
                                         
@@ -250,7 +263,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                                 item.values().ptype.toLowerCase().search(pType.toLowerCase()) >= 0 &&
                                                 tagArray.every(Boolean)
                                             )
-                                    }else{
+                                    }else{                                    
                                     
                                         if(release == "under")
                                             return ( 
@@ -270,10 +283,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                             )
                                     }
                                 
-                                });                                
+                                });
                             }
-                            
                         </script>
+                        
 						<div class="clearfix"> </div>
 					</div>
 				</div>
