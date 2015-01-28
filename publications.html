@@ -28,7 +28,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		<link href="css/style.css" rel='stylesheet' type='text/css' />
    		 <!-- Custom Theme files -->
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+		<script type="application/x-javascript"> 
+            addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
+        </script>
 		</script>
 		<!----webfonts--->
 		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
@@ -44,7 +46,27 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <script src="js/tagmanager.js"></script> 
        
         <!----//Tag manager--->
+        
+        
         <link rel="stylesheet" href="css/publication.css">
+        <script>
+            function displayAdv(){
+                var d = document.getElementById('Advanced').style.display;
+                
+                if(d == 'none'){ 
+                    document.getElementById('Advanced').style.display = 'block' 
+                    //$('a#advancedLink').text('hide filter');
+                    
+                    document.getElementById('NormalSearch').style.display = 'none';
+                }else{
+                    document.getElementById('Advanced').style.display = 'none';
+                    //$('a#advancedLink').text('advanced filter');
+                    
+                    document.getElementById('NormalSearch').style.display = 'block'
+                }                  
+            }
+        </script>
+        
 	</head>
 	<body>
 		<div class="bg">
@@ -85,31 +107,52 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						<div class="listing" id="publicationsList">
                         
                             <form name="searchform">
-                                <input class="searchbox" type="text" name="title" placeholder="Publication title" >                                
-                                <input class="searchbox" type="text" name="author" placeholder="Author name">                                
-                                <input class="searchbox" type="text" name="coauthor" placeholder="Co-author name">                                
-                                <br>
+                                <div id="NormalSearch">
+                                    <input class="search searchbox" type="text" placeholder="Search" > 
+                                    <a id="advancedLink" style="color:blue;" onclick="displayAdv()">advanced filter</a>  
+                                </div>
                                 
-                                Release date:
-                                <select name="release">
-                                    <option value="">All</option>
-                                    <option value="2015">2015</option>
-                                    <option value="2014">2014</option>
-                                    <option value="2013">2013</option>
-                                    <option value="2012">2012</option>
-                                    <option value="under">Under 2012</option>
-                                </select>                                
-                                <input type="text" name="tags" placeholder="Tags" class="tm-input"/>                            
-                               
-                                <script>
-                                    jQuery(".tm-input").tagsManager({
-                                        hiddenTagListName : "hiddenTag"
-                                    });
-                                </script>  
+                                
+                                <div id="Advanced" style="display:none;">
+                                    <a id="advancedLink" style="color:blue;" onclick="displayAdv()">hide filter</a>  
+                                    <br><br>
+                                    <input class="searchbox" type="text" name="title" placeholder="Publication title" >                                
+                                    <input class="searchbox" type="text" name="author" placeholder="Author name">                                
+                                    <input class="searchbox" type="text" name="coauthor" placeholder="Co-author name">                                
+                                    <br>
+                                    
+                                    Release date:
+                                    <select name="release">
+                                        <option value="">All</option>
+                                        <option value="2015">2015</option>
+                                        <option value="2014">2014</option>
+                                        <option value="2013">2013</option>
+                                        <option value="2012">2012</option>
+                                        <option value="under">Under 2012</option>
+                                    </select>    
+                    
+                                    Type:
+                                    <select name="ptype">
+                                        <option value="">All</option>
+                                        <option value="Abstract">Abstract</option>
+                                        <option value="Article">Article</option>
+                                        <option value="Thesis">Thesis</option>
+                                        <option value="Book chapter">Book chapter</option>
+                                        <option value="Conference">Conference</option>
+                                    </select>   
+                                    
+                                    <input type="text" name="tags" placeholder="Tags" class="tm-input"/>                            
+                                   
+                                    <script>
+                                        jQuery(".tm-input").tagsManager({
+                                            hiddenTagListName : "hiddenTag"
+                                        });
+                                    </script>  
 
-                                 <br><br>    
-                                <input class="button" type="button" value="Submit" onclick="validateForm()">                            
-                                <input class="button" type="reset" value="clear" onClick="clearForm()">  
+                                     <br><br>    
+                                    <input class="button" type="button" value="Submit" onclick="validateForm()">                            
+                                    <input class="button" type="reset" value="clear" onClick="clearForm()">  
+                                </div>
                             </form>
                             <br><br>                                                     
                                        
@@ -120,7 +163,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                     <p class="author">Kevin Whittingstall</p>
                                     <p class="coauthor"></p>
                                     <p class="release">2014</p> 
-                                    <br> <!-- Seperate Tags from publications informations -->                                    
+                                    <br> <!-- Seperate Tags from publications informations -->      
+                                    <p class="ptype"><span class="ptype">Abstract</span></p>
                                     <p class="tag"><span class="tag">EEG</span><span class="tag">fMRI</span><span class="tag">Human</span></p>                             
                                 </li>
                                 <li>
@@ -130,6 +174,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                     <p class="coauthor">Kevin Whittingstall, Michaël Bernier</p>
                                     <p class="release">2012</p>
                                     <br> <!-- Seperate Tags from publications informations -->
+                                    <p class="ptype"><span class="ptype">Article</span></p>
                                     <p class="tag"><span class="tag">Tractography</span><span class="tag">Brain</span></p>
                                 </li>
                                 <li>
@@ -138,7 +183,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                     <p class="coauthor">Christophe Colomb</p>
                                     <p class="release">1604</p>
                                     <br> <!-- Seperate Tags from publications informations -->
-                                    <p class="tag"><span class="tag">MRI</span><span class="tag">Animal</span></p>
+                                    <p class="ptype"><span class="ptype">Thesis</span></p>
+                                    <p class="tag"><span class="tag">EEG</span><span class="tag">MRI</span><span class="tag">Animal</span></p>
                                 </li>
                                 
                             </ul>                        
@@ -147,7 +193,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                         <script type="text/javascript" src="js/list.js"></script>
                         <script type="text/javascript">
                             var options = {
-                              valueNames: [ 'title','author','coauthor', 'release','tag' ]
+                              valueNames: [ 'title','author','coauthor', 'release','ptype','tag' ]
                             };
 
                             var userList = new List('publicationsList', options);
@@ -162,16 +208,14 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                 var title = document.forms["searchform"].elements["title"].value;
                                 var author = document.forms["searchform"].elements["author"].value;
                                 var coauthor = document.forms["searchform"].elements["coauthor"].value;
-                                var release = document.forms["searchform"].elements["release"].value;        
+                                var release = document.forms["searchform"].elements["release"].value; 
+                                var pType = document.forms["searchform"].elements["ptype"].value;                                
                                 var tags = document.forms["searchform"].elements["hiddenTag"].value;
-                                
-                                
-                                
+                                       
                                 if(tags)
                                     var res = tags.split(",");  
                                
-                                userList.filter(function(item){
-                                    
+                                userList.filter(function(item){                                
                                     if(res){         
                                     
                                         var tagArray = [];
@@ -194,6 +238,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                                 item.values().author.toLowerCase().search(author.toLowerCase()) >= 0 &&
                                                 item.values().coauthor.toLowerCase().search(coauthor.toLowerCase()) >= 0 &&
                                                 item.values().release < 2012 &&
+                                                item.values().ptype.toLowerCase().search(pType.toLowerCase()) >= 0 &&
                                                 tagArray.every(Boolean)
                                             )
                                         else                                       
@@ -202,6 +247,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                                 item.values().author.toLowerCase().search(author.toLowerCase()) >= 0 &&
                                                 item.values().coauthor.toLowerCase().search(coauthor.toLowerCase()) >= 0 &&
                                                 item.values().release.search(release) >= 0 &&
+                                                item.values().ptype.toLowerCase().search(pType.toLowerCase()) >= 0 &&
                                                 tagArray.every(Boolean)
                                             )
                                     }else{
@@ -211,14 +257,16 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                                 item.values().title.toLowerCase().search(title.toLowerCase()) >= 0 &&
                                                 item.values().author.toLowerCase().search(author.toLowerCase()) >= 0 &&
                                                 item.values().coauthor.toLowerCase().search(coauthor.toLowerCase()) >= 0 &&
-                                                item.values().release < 2012 
+                                                item.values().release < 2012 &&
+                                                item.values().ptype.toLowerCase().search(pType.toLowerCase()) >= 0 
                                             )
                                         else
                                             return ( 
                                                 item.values().title.toLowerCase().search(title.toLowerCase()) >= 0 &&
                                                 item.values().author.toLowerCase().search(author.toLowerCase()) >= 0 &&
                                                 item.values().coauthor.toLowerCase().search(coauthor.toLowerCase()) >= 0 &&
-                                                item.values().release.search(release) >= 0 
+                                                item.values().release.search(release) >= 0 &&
+                                                item.values().ptype.toLowerCase().search(pType.toLowerCase()) >= 0
                                             )
                                     }
                                 

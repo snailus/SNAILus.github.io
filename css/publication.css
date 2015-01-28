@@ -61,6 +61,25 @@
     display:inline-block;
 }
 
+#publicationsList ul li p span.ptype{
+    color: #4594b5;
+    background-color: #c5eefa;
+    border-color: #5dc8f7;
+    border: #bbbbbb 1px solid;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+    display: inline-block;
+    border-radius: 3px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 12px;
+    margin: 0 2px 2px 0;
+    padding: 3px;
+    text-decoration: none;
+    transition: border 0.2s linear 0s, box-shadow 0.2s linear 0s;
+    -moz-transition: border 0.2s linear 0s, box-shadow 0.2s linear 0s;
+    -webkit-transition: border 0.2s linear 0s, box-shadow 0.2s linear 0s;
+    vertical-align: middle;
+}
+
 #publicationsList ul li p span.tag{
     background-color: #fd9783;
     border: #bbbbbb 1px solid;

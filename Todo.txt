@@ -1,0 +1,13 @@
+Website todo :
+
+Project page
+Photo Gallery (Add pagination ?)
+Publication (Add pagination ?)
+Fill index, publications, member and project with database ?
+
+Style :
+
+Style du calendrier ? (Fullcalendar)
+Banner (Faire une belle banière avec bonne dimension)
+Logo image (Remplacer celui de l'uni)
+Photo membres
