@@ -76,8 +76,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     googleCalendarApiKey: 'AIzaSyDzYo2E9RK4Xcz9zV313M7Bax7vq5JHUtM',
                     
                     eventClick: function(data, event, view) {
-                        console.log(data.start._d);
-
                                               
                         var title = '<h4 style="color:#fe5433;">'+data.title+'</h4>' ;
                         var content = '<p><b>Start:</b> '+data.start._d+'<br />' + 
@@ -131,10 +129,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     eventResizeStart: function() { tooltip.hide() },
                     eventDragStart: function() { tooltip.hide() },
                     viewDisplay: function() { tooltip.hide() },
-                                
+                    dragScroll: function() { tooltip.hide() },           
                     events: {
                         googleCalendarId: 'snail.usherbrooke@gmail.com'
                     },
+                    height: "auto",
                     header: {
                         left : 'prev,next today',
                         center: 'title',
@@ -236,7 +235,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 </div>							
             </div>
             <div class="container">
-                <div id='calendar'></div>
+		<div class="wow bounceInRight" data-wow-delay="1.4s" >
+                	<div id='calendar'></div>
+		</div>
             </div>
 
             </br>
