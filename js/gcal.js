@@ -18,6 +18,39 @@ var API_BASE = 'https://www.googleapis.com/calendar/v3/calendars';
 var fc = $.fullCalendar;
 var applyAll = fc.applyAll;
 
+var clientId = '508957639999-jkb9s99df85ajoies54kk7509fmgcbns.apps.googleusercontent.com';
+
+var apiKey = 'AIzaSyDzYo2E9RK4Xcz9zV313M7Bax7vq5JHUtM';
+
+var scopes = 'https://www.googleapis.com/auth/calendar';
+
+function handleClientLoad() {
+    // Step 2: Reference the API key
+    gapi.client.setApiKey(apiKey);
+    window.setTimeout(checkAuth,1);
+}
+
+function checkAuth() {
+    gapi.auth.authorize({client_id: clientId, scope: scopes, immediate: true}, handleAuthResult);
+}
+
+function handleAuthResult(authResult) {
+    var authorizeButton = document.getElementById('authorize-button');
+    if (authResult && !authResult.error) {
+      authorizeButton.style.visibility = 'hidden';
+      makeApiCall();
+    } else {
+      authorizeButton.style.visibility = '';
+      authorizeButton.onclick = handleAuthClick;
+    }
+}
+
+function handleAuthClick(event) {
+// Step 3: get authorization to use private data
+gapi.auth.authorize({client_id: clientId, scope: scopes, immediate: false}, handleAuthResult);
+return false;
+}
+
 
 fc.sourceNormalizers.push(function(sourceOptions) {
 	var googleCalendarId = sourceOptions.googleCalendarId;
@@ -140,9 +173,9 @@ function transformOptions(sourceOptions, start, end, timezone, calendar) {
 					var url = entry.htmlLink;
 
 					// make the URLs for each event show times in the correct timezone
-					if (timezoneArg) {
-						url = injectQsComponent(url, 'ctz=' + timezoneArg);
-					}
+					//if (timezoneArg) {
+					//	url = injectQsComponent(url, 'ctz=' + timezoneArg);
+					//}
 
 					events.push({
 						id: entry.id,
@@ -157,7 +190,7 @@ function transformOptions(sourceOptions, start, end, timezone, calendar) {
 
 				// call the success handler(s) and allow it to return a new events array
 				successArgs = [ events ].concat(Array.prototype.slice.call(arguments, 1)); // forward other jq args
-				successRes = applyAll(success, this, successArgs);
+				successRes = applyAll(true, this, successArgs);
 				if ($.isArray(successRes)) {
 					return successRes;
 				}

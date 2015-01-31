@@ -1,13 +1,11 @@
 Website todo :
 
+TODO : Call a refresh on calendar ? Or try to avoid to recreate the calendar again by removing events.
 Project page
-Photo Gallery (Add pagination ?)
-Publication (Add pagination ?)
-Fill index, publications, member and project with database ?
+Fill news feed and publications with database ?
 
 Style :
 
-Style du calendrier ? (Fullcalendar)
 Banner (Faire une belle banière avec bonne dimension)
 Logo image (Remplacer celui de l'uni)
 Photo membres
