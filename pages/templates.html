@@ -8,7 +8,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <html>
 	<head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-		<title> SNAIL | Home </title>
+		<title> SNAIL | News </title>
 		<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 		<script src="js/jquery.min.js"></script>
@@ -19,7 +19,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		<script>
 		 new WOW().init();
 		</script>
-		<!---- animated-css ---->
+		<!---- animated-css ---->		 
 		<link href="css/style.css" rel='stylesheet' type='text/css' />
    		 <!-- Custom Theme files -->
 		<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -34,43 +34,21 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <script src="js/modernizr.js"></script> <!-- Modernizr -->
         <!----//Back to top--->
         
-        <!-- News feed -->
-        <script type="text/javascript">
-            $( document ).ready(function() {
-
-                var feed = document.getElementById("newsfeed");
-
-                $.getJSON("news.json", function(json) {
-                    json.news.forEach(function(item){
-                        var newdiv = document.createElement('div');
-                        newdiv.setAttribute('class',"history-lines");
-
-                        newdiv.innerHTML = '<ul><li class="date"><span>' + item.date + '</span></li><li class="date-info"><p><label>' + item.label + '</label>' + item.text + '</p></li></ul><div class="clearfix"> </div>';
-                        feed.appendChild(newdiv);
-                    
-                    });
-                });
-            });
-        </script>
-                    
-
-        <!--// News feed -->
-        
 	</head>
 	<body>
 		<div class="bg">
 			<div class="container">
 		<!----- start-header---->
-			<div id="home" class="header wow bounceInDown" data-wow-delay="0.4s">
+			<div id="home" class="header" data-wow-delay="0.4s>
 					<div class="top-header">
-						<div class="logo wow bounceInDown" data-wow-delay="0.4s">
-							<a href=""><img src="images/logo4.png" title="dreams" /></a>
+						<div class="logo" data-wow-delay="0.4s">
+							<a href="index.html"><img src="images/logo4.png" title="dreams" /></a>
 						</div>
 						<!----start-top-nav---->
-						 <nav class="top-nav wow bounceInDown" data-wow-delay="0.4s">
+						 <nav class="top-nav" data-wow-delay="0.4s">
 						  <span class="menu"> </span>
 							<ul class="top-nav">
-								<li class="active"><a href="index.html" class="scroll">Home</a></li>
+								<li><a href="index.html" class="scroll">Home</a></li>
                                 <li><a href="calendar.html">Calendar</a></li>
 								<li><a href="publications.html">Publications</a></li>
 								<li><a href="project.html">Project</a></li>
@@ -89,54 +67,18 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					</div>
 				</div>				
 			</div>
-			<!----- //End-header---->
-			<!----- top-grids ----->
-			<div class="container">
-                <div class="welcome-note">
-					<div class="welcome-note-grids">
-						<div class="col-md-4 wow fadeInLeft" data-wow-delay="0.4s">
-							<div class="welcome-note-left text-right">
-								<h2>Welcome</h2>
-								<span>to SNAIL Website</span>
-							</div>
-						</div> 
-						<div class="col-md-8 welcome-grid">
-							<div class="welcome-note-right ">
-								<div class="col-md-8">
-									<div class="welcome-note-right-left">
-										<h3>Sherbrooke Neuro Analysis and Imaging Lab</h3>
-										<p> You have access to members publications, projects and to the team calendar.</p>
-									</div>
-								</div>								
-								<div class="clearfix"> </div>
-							</div>
-						</div> 
-						<div class="clearfix"> </div>
-					</div>
-				</div>
-			</div>
-			<div class="clearfix"> </div>
-			<!----- top-grids ----->
-            
+			<!----- //End-header---->			
 			<!----- mid-grids ----->
 			<div class="mid-grids">
 				<div class="container">
-					<div class="mid-grid wow bounceInLeft" data-wow-delay="0.4s">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas quis orci quis enim vehicula dapibus. </p>	
+					<div class="mid-grid">							
+						<div class="col-md-8 mid-grid-right" data-wow-delay="0.4s">
+                            <h2>Thisis a template page for futur important news that need a page.</h2>
+						</div>
 						<div class="clearfix"> </div>
 					</div>
 				</div>
 			</div>
-            
-            <!--history-->
-            <div class="container wow bounceInRight " data-wow-delay="0.4s">               
-                <div id="newsfeed" class="team-history">
-                    <h3>News feed</h3>    
-                    <!-- Element are added via news.json and javascript on top -->                
-                </div>
-            </div>
-            <!--history-->	
-            
 			<!----- mid-grids ----->
             
             <a href="#0" class="cd-top">Top</a>
@@ -157,17 +99,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 								<li><a href="photo.html">Gallery</a></li>
 								<li><a href="contact.html">Contact</a></li>								
 							</ul>
-						</div>                                
-                        <!--   
-						<div class="col-md-3 footer-grid ftr-sec wow fadeInRight" data-wow-delay="0.4s">
-							<h3>Follows</h3>
-							<ul class="social-icons">
-								<li><a class="twitter" href="#"><span> </span>twitter</a></li>
-								<li><a class="facebook" href="#"><span> </span>Facebook</a></li>
-								<li><a class="googlepluse" href="#"><span> </span>google+</a></li>								
-							</ul>
-						</div>
-                        -->
+						</div>       
 						<div class="col-md-3 footer-grid ftr-sec ftr wow fadeInRight" data-wow-delay="0.4s">
 							<h3>Our Location</h3>
 							<ul class="location">
