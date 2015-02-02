@@ -34,309 +34,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <script src="js/modernizr.js"></script> <!-- Modernizr -->
         <!----//Back to top--->
         
-         <!-- qTip -->        
-        <link href="css/qtip.min.css" rel='stylesheet' />
-        <script type='text/javascript' src="js/qtip.min.js"></script>        
-        <!--// qTip -->
-        <!-- Full Calendar -->
-        <link href="css/fullcalendar.min.css" rel='stylesheet' />
-        <script type='text/javascript' src="js/moment.min.js"></script>
-        <script type='text/javascript' src="js/fullcalendar.min.js"></script>
-        <script type='text/javascript' src='js/gcal.js'></script>
 
-		
-		<script type="text/javascript">
-
-			var clientId = '508957639999-jkb9s99df85ajoies54kk7509fmgcbns.apps.googleusercontent.com';
-			var apiKey = 'AIzaSyDzYo2E9RK4Xcz9zV313M7Bax7vq5JHUtM';
-			var scopes = 'https://www.googleapis.com/auth/calendar';
-
-			function handleClientLoad() {
-				gapi.client.setApiKey(apiKey);
-				window.setTimeout(checkAuth,1);
-			}
-
-			function checkAuth() {
-				gapi.auth.authorize({client_id: clientId, scope: scopes, immediate: true}, handleAuthResult);
-			}
-
-			function handleAuthResult(authResult) {
-				var authorizeButton = document.getElementById('authorize-button');
-				
-				if (authResult && !authResult.error) {
-					authorizeButton.style.visibility = 'hidden';	
-                    console.log("Button hidden and generate new calendar");		  
-					makeApiCall();
-				} else {
-					authorizeButton.style.visibility = '';
-					authorizeButton.onclick = handleAuthClick;
-					GeneratePublicCalendar();
-				}
-			}
-
-			function handleAuthClick(event) {            
-				gapi.auth.authorize({client_id: clientId, scope: scopes, immediate: false}, handleAuthResult);
-				return false;
-			}
-			
-			
-			function GeneratePublicCalendar(){
-			}
-
-			// Load the API and make an API call.  Display the results on the screen.
-			function makeApiCall() {
-
-				// Step 4: Load the Google+ API
-				gapi.client.load('calendar', 'v3').then(function() {
-				  // Step 5: Assemble the API request
-					  var request = gapi.client.calendar.events.list({
-							'calendarId': 'snail.usherbrooke@gmail.com'
-						});
-				  
-						// Step 6: Execute the API request
-						request.then(function(resp) {
-
-							var eventsList = [];
-							var successArgs;
-							var successRes;
-
-							if (resp.result.error) {
-								reportError('Google Calendar API: ' + data.error.message, data.error.errors);
-							}
-							else if (resp.result.items) {
-								$.each(resp.result.items, function(i, entry) {
-									var url = entry.htmlLink;
-
-									// make the URLs for each event show times in the correct timezone
-									//if (timezoneArg) {
-									//    url = injectQsComponent(url, 'ctz=' + timezoneArg);
-									//}
-
-									eventsList.push({
-										id: entry.id,
-										title: entry.summary,
-										start: entry.start.dateTime || entry.start.date, // try timed. will fall back to all-day
-										end: entry.end.dateTime || entry.end.date, // same
-										url: url,
-										location: entry.location,
-										description: entry.description
-									});
-								});
-
-								// call the success handler(s) and allow it to return a new events array
-								successArgs = [ eventsList ].concat(Array.prototype.slice.call(arguments, 1)); // forward other jq args
-								successRes = $.fullCalendar.applyAll(true, this, successArgs);
-								if ($.isArray(successRes)) {
-									return successRes;
-								}
-							}
-
-							if(eventsList.length > 0)
-							{
-                                // qTip2
-                                var tooltip = $('</div>').qtip({
-                                    id: 'fullcalendar',
-                                    prerender: true,
-                                    content: {
-                                        text: ' ',
-                                        title: ' ',
-                                    },
-                                    position: {
-                                        my: 'bottom center',
-                                        at: 'top center',
-                                        target: 'event',
-                                        viewport: $('#calendar'),
-                                        adjust: {
-                                            mouse: false,
-                                            scroll: false
-                                        }
-                                    },
-                                    show: false,
-                                    hide: 'unfocus',
-                                    style: 'qtip-dark'
-                                }).qtip('api');
-                            
-                                // Full calendar with google.
-                                $('#calendar').fullCalendar({                                    
-                                    eventClick: function(data, event, view) {
-                                                              
-                                        var title = '<h4 style="color:#fe5433;">'+data.title+'</h4>' ;
-                                        var content = '<p><b>Start:</b> '+data.start._d+'</br>' + 
-                                            (data.end && '<p><b>End:</b> '+data.end._d+'</p></br>' || '');                           
-                                            
-                                        // Check if the event have a description
-                                        if(data.description){    
-                                            // Check if inside description tag ## is found (That means attachments are linked)
-                                            if(data.description.search("##") > 0){
-                                            
-                                                // Split description into array [0] = text, [i] where i = 1,.... = Attachements
-                                                var descArray = data.description.split("##");
-                                                
-                                                // Insert description text before.
-                                                content += '<p><b>Description:</br></br></b> '+descArray[0]+'</p></br></br>';                                
-                                                content += '<p><b>Attachments :</br></b>';
-                                                
-                                                // Loop on all attachments
-                                                for (i = 1; i < descArray.length; i++) { 
-                                                
-                                                    // The attachments are store like this AttachementsName:GoogleDriveId
-                                                    var googleId = descArray[i].split(":");
-                                                    
-                                                    // Display the attachments name and image to view and download the contain.
-                                                    content += googleId[0] + ' : ';
-                                                    content += '<a href="https://drive.google.com/open?id=' + googleId[1] + '&authuser=0"><img src="images/viewIconv2.png"></img></a>';
-                                                    content += '<a href="https://drive.google.com/uc?export=download&id=' + googleId[1] + '&authuser=0"><img src="images/downloadIconv2.png" style="margin:5px;"></img></a>';
-                                                    content += '</br>';
-                                                }
-                                                content += '</br></br>';
-                                            }
-                                            else
-                                            {
-                                                content += '<p><b>Description:</br></br></b> '+data.description+'</p></br>';
-                                            }
-                                        }
-                                    
-                                        // Add the url to the google event.
-                                        content += '<p><a style="color:#fe5433;" href="' + data.url +'">For more information</a></p>';                            
-
-                                        tooltip.set({
-                                            'content.text': content,
-                                            'content.title':title
-                                        })
-                                        .reposition(event).show(event);
-                                       
-                                        // Return false, to stay on this page.
-                                        return false;
-                                    },
-                                    dayClick: function() { tooltip.hide() },
-                                    eventResizeStart: function() { tooltip.hide() },
-                                    eventDragStart: function() { tooltip.hide() },
-                                    viewDisplay: function() { tooltip.hide() },
-                                    dragScroll: function() { tooltip.hide() },           
-                                    events: eventsList,
-                                    height: "auto",
-                                    header: {
-                                        left : 'prev,next today',
-                                        center: 'title',
-                                        right: 'month,agendaWeek,agendaDay'
-                                    },
-                                    defaultView: 'agendaWeek'                   
-                                });
-                                // TODO : Call a refresh on calendar ? Or try to avoid to recreate the calendar again by removing events.
-                                
-							}
-							return eventsList;
-							
-					  }, function(reason) {
-						console.log('Error: ' + reason.result.error.message);
-					  });
-				});
-			}
-			
-			
-			function GeneratePublicCalendar(){  
-			
-                // qTip2
-                var tooltip = $('</div>').qtip({
-                    id: 'fullcalendar',
-                    prerender: true,
-                    content: {
-                        text: ' ',
-                        title: ' ',
-                    },
-                    position: {
-                        my: 'bottom center',
-                        at: 'top center',
-                        target: 'event',
-                        viewport: $('#calendar'),
-                        adjust: {
-                            mouse: false,
-                            scroll: false
-                        }
-                    },
-                    show: false,
-                    hide: 'unfocus',
-                    style: 'qtip-dark'
-                }).qtip('api');
-            
-                // Full calendar with google.
-                $('#calendar').fullCalendar({
-                    googleCalendarApiKey: 'AIzaSyDzYo2E9RK4Xcz9zV313M7Bax7vq5JHUtM',
-                    
-                    eventClick: function(data, event, view) {
-                                              
-                        var title = '<h4 style="color:#fe5433;">'+data.title+'</h4>' ;
-                        var content = '<p><b>Start:</b> '+data.start._d+'</br>' + 
-                            (data.end && '<p><b>End:</b> '+data.end._d+'</p></br>' || '');                           
-                            
-                        // Check if the event have a description
-                        if(data.description){    
-                            // Check if inside description tag ## is found (That means attachments are linked)
-                            if(data.description.search("##") > 0){
-                            
-                                // Split description into array [0] = text, [i] where i = 1,.... = Attachements
-                                var descArray = data.description.split("##");
-                                
-                                // Insert description text before.
-                                content += '<p><b>Description:</br></br></b> '+descArray[0]+'</p></br></br>';                                
-                                content += '<p><b>Attachments :</br></b>';
-                                
-                                // Loop on all attachments
-                                for (i = 1; i < descArray.length; i++) { 
-                                
-                                    // The attachments are store like this AttachementsName:GoogleDriveId
-                                    var googleId = descArray[i].split(":");
-                                    
-                                    // Display the attachments name and image to view and download the contain.
-                                    content += googleId[0] + ' : ';
-                                    content += '<a href="https://drive.google.com/open?id=' + googleId[1] + '&authuser=0"><img src="images/viewIconv2.png"></img></a>';
-                                    content += '<a href="https://drive.google.com/uc?export=download&id=' + googleId[1] + '&authuser=0"><img src="images/downloadIconv2.png" style="margin:5px;"></img></a>';
-                                    content += '</br>';
-                                }
-                                content += '</br></br>';
-                            }
-                            else
-                            {
-                                content += '<p><b>Description:</br></br></b> '+data.description+'</p></br>';
-                            }
-                        }
-                    
-                        // Add the url to the google event.
-                        content += '<p><a style="color:#fe5433;" href="' + data.url +'">For more information</a></p>';                            
-
-                        tooltip.set({
-                            'content.text': content,
-                            'content.title':title
-                        })
-                        .reposition(event).show(event);
-                       
-                        // Return false, to stay on this page.
-                        return false;
-                    },
-                    dayClick: function() { tooltip.hide() },
-                    eventResizeStart: function() { tooltip.hide() },
-                    eventDragStart: function() { tooltip.hide() },
-                    viewDisplay: function() { tooltip.hide() },
-                    dragScroll: function() { tooltip.hide() },           
-                    events: {
-                        googleCalendarId: 'snail.usherbrooke@gmail.com'
-                    },
-                    height: "auto",
-                    header: {
-                        left : 'prev,next today',
-                        center: 'title',
-                        right: 'month,agendaWeek,agendaDay'
-                    },
-                    defaultView: 'agendaWeek'                   
-                });
-            }
-		  
-		  
-		  
-        </script>
-        <script src="https://apis.google.com/js/client.js?onload=handleClientLoad"></script>
-		
-        <!--//Full Calendar -->
        
         
 	</head>
@@ -354,6 +52,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						  <span class="menu"> </span>
 							<ul class="top-nav">
 								<li class="active"><a href="index.html" class="scroll">Home</a></li>
+                                <li><a href="calendar.html">Calendar</a></li>
 								<li><a href="publications.html">Publications</a></li>
 								<li><a href="project.html">Project</a></li>
 								<li><a href="team.html">Lab members</a></li>
@@ -401,48 +100,17 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			<!----- top-grids ----->
             
 			<!----- mid-grids ----->
-            <!--
 			<div class="mid-grids">
 				<div class="container">
-					<div class="mid-grid">
-                        <div class="col-md-4 mid-grid-left  wow bounceInRight" data-wow-delay="0.4s">
-								<img src="images/cerebral.png" title="name" />
-							</div>
-							<div class="col-md-8 mid-grid-right  wow bounceInLeft" data-wow-delay="0.4s">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-						Maecenas quis orci quis enim vehicula dapibus. </p>	
-							</div>
+					<div class="mid-grid wow bounceInLeft" data-wow-delay="0.4s">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas quis orci quis enim vehicula dapibus. </p>	
 						<div class="clearfix"> </div>
 					</div>
 				</div>
 			</div>
-            -->
-            
-            </br></br>  
-            <div class="container middle">
-                <div class="col-md-4 wow bounceInRight" data-wow-delay="0.4s" >
-                    <!--
-                    <iframe src="https://www.google.com/calendar/embed?src=snail.usherbrooke%40gmail.com&ctz=America/Toronto" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
-                    -->
-                    
-                </div>							
-            </div>
-			
-			<!--Add a button for the user to click to initiate auth sequence -->
-			
-			
-            <div class="container">
-				<div class="wow bounceInRight" data-wow-delay="1.4s" >
-                    <button id="authorize-button" style="visibility: hidden">Add private events</button></br></br>
-					<div id='calendar'></div>
-				</div>
-            </div>
-
-            </br>
-            </br>
             
             <!--history-->
-            <div class="container">
+            <div class="container wow bounceInRight " data-wow-delay="0.4s">
                  <div class="team-history">
                     <h3>News feed</h3>
                     <div class="history-lines">
@@ -485,6 +153,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 							<h3>Navigation</h3>
 							<ul>
 								<li><a href="index.html">Home</a></li>
+                                <li><a href="calendar.html">Calendar</a></li>
 								<li><a href="publications.html">Publications</a></li>
 								<li><a href="project.html">Projects</a></li>
 								<li><a href="team.html">Lab members</a></li>
@@ -492,7 +161,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 								<li><a href="contact.html">Contact</a></li>								
 							</ul>
 						</div>                                
-                                
+                        <!--   
 						<div class="col-md-3 footer-grid ftr-sec wow fadeInRight" data-wow-delay="0.4s">
 							<h3>Follows</h3>
 							<ul class="social-icons">
@@ -501,6 +170,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 								<li><a class="googlepluse" href="#"><span> </span>google+</a></li>								
 							</ul>
 						</div>
+                        -->
 						<div class="col-md-3 footer-grid ftr-sec ftr wow fadeInRight" data-wow-delay="0.4s">
 							<h3>Our Location</h3>
 							<ul class="location">
@@ -519,5 +189,4 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			<!---- footer ---->
 	</body>
 </html>
-
 
