@@ -84,8 +84,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
                             photoLink.setAttribute('rel',item.element[i].albumname);
                             photoLink.setAttribute('href',item.element[i].linkref);
+                            photoLink.setAttribute('title',item.element[i].text);
 
-                            photoLink.innerHTML = '<span>' + item.element[i].text + '</span><img src="' + item.element[i].imgsource + '" alt=""></img>';
+                            photoLink.innerHTML = '<span>' + item.element[i].title + '</span><img src="' + item.element[i].imgsource + '" alt=""></img>';
 
                             photoGallery.appendChild(photoLink);
 
@@ -112,18 +113,19 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                             var videoLink = document.createElement('a');
 
                             if(i%3 == 0){
-                                videoLink.setAttribute('class',"fancybox portfolio_item float alpha");
+                                videoLink.setAttribute('class',"fancybox-media portfolio_item float alpha");
                             }else if(i%3 == 1){
-                                videoLink.setAttribute('class',"fancybox portfolio_item float");
+                                videoLink.setAttribute('class',"fancybox-media portfolio_item float");
                             }else{
-                                videoLink.setAttribute('class',"fancybox portfolio_item float omega");
+                                videoLink.setAttribute('class',"fancybox-media portfolio_item float omega");
                             }
 
 
                             videoLink.setAttribute('rel',item.element[i].albumname);
                             videoLink.setAttribute('href',item.element[i].linkref);
+                            videoLink.setAttribute('title',item.element[i].text);
 
-                            videoLink.innerHTML = '<span>' + item.element[i].text + '</span><img src="' + item.element[i].imgsource + '" alt=""></img>';
+                            videoLink.innerHTML = '<span>' + item.element[i].title + '</span><img src="' + item.element[i].imgsource + '" alt=""></img>';
 
                             videoGallery.appendChild(videoLink);
 
@@ -135,6 +137,13 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     });
                 });// End get json
                 $(".fancybox").fancybox();
+                $('.fancybox-media').fancybox({
+		            openEffect  : 'none',
+		            closeEffect : 'none',
+		            helpers : {
+			            media : {}
+		            }
+	            });
             }); // End doc ready
         </script>                    
 

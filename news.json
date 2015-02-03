@@ -7,7 +7,8 @@
             "text": "This website is now hosted with github webpages.",
             "photo":{
                 "linkref": "images/logo4.png",
-                "text": "Website",
+                "text": "News website for the SNAIL",
+                "title": "Website",
                 "imgsource": "images/logo4.png"
             }
         },

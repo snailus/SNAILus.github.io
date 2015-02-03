@@ -73,7 +73,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                         
                         if(item.photo)
                         {
-                            newdiv.innerHTML = '<ul><li class="date"><span id="dateSpan">' + item.date + '</span></li><li class="date-info"><p><label>' + item.label + '</label>' + item.text + '</p></li><li><a class ="fancybox portfolio_item float alpha" rel="News" href="'+ item.photo.linkref+'"><span>' + item.photo.text + '</span><img src="' + item.photo.imgsource + '" alt=""></img></li></ul><div class="clearfix"> </div>';
+                            newdiv.innerHTML = '<ul><li class="date"><span id="dateSpan">' + item.date + '</span></li><li class="date-info"><p><label>' + item.label + '</label>' + item.text + '</p></li><li><a class ="fancybox portfolio_item float alpha" rel="News" title="'+ item.photo.text +'" href="'+ item.photo.linkref+'"><span>' + item.photo.title + '</span><img src="' + item.photo.imgsource + '" alt=""></img></li></ul><div class="clearfix"> </div>';
 
                         }else{
                             newdiv.innerHTML = '<ul><li class="date"><span id="dateSpan">' + item.date + '</span></li><li class="date-info"><p><label>' + item.label + '</label>' + item.text + '</p></li></ul><div class="clearfix"> </div>';
