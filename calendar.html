@@ -222,7 +222,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                         center: 'title',
                                         right: 'month,agendaWeek,agendaDay'
                                     },
-                                    defaultView: 'agendaWeek'                   
+                                    defaultView: 'month'                   
                                 });
                                 // TODO : Call a refresh on calendar ? Or try to avoid to recreate the calendar again by removing events.
                                 
@@ -329,7 +329,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                         center: 'title',
                         right: 'month,agendaWeek,agendaDay'
                     },
-                    defaultView: 'agendaWeek'                   
+                    defaultView: 'month'                   
                 });
             }		  
         </script>
@@ -374,6 +374,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 			<!----- mid-grids ----->
             <div class="container">
+                <h3>Group calendar</h3></br>
+                <p> Here you can see all of our events. If you are not members of the group you are still welcome to join us for the events displayed. Note that attachments can be added to events.</p></br>
                 <button id="authorize-button" style="visibility: hidden">Show private events</button></br></br>
                 <div id='calendar'></div>
             </div>

@@ -29,9 +29,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <!----shadowbox--->
         <link rel="stylesheet" type="text/css" href="shadowbox/shadowbox.css">
         <script type="text/javascript" src="shadowbox/shadowbox.js"></script>
-        <script type="text/javascript">
-            Shadowbox.init({ language: 'en', players: ['img', 'html', 'iframe', 'qt', 'wmp', 'swf', 'flv'] });
-        </script>
         <!----//shadowbox--->
         
 		<!----webfonts--->
@@ -42,6 +39,96 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <link rel="stylesheet" href="css/backtop.css"> <!-- Gem style -->
         <script src="js/modernizr.js"></script> <!-- Modernizr -->
         <!----//Back to top--->
+
+         <!-- Gallery fd -->
+        <script type="text/javascript">
+            $( document ).ready(function() {
+
+                var photoGallery = document.getElementById("photofolio");
+                var videoGallery = document.getElementById("videofolio");                
+
+                $.getJSON("gallery.json", function(json) {
+
+                    json.photos.forEach(function(item){
+                        
+                        var headerDiv = document.createElement('div');
+
+                    
+                        headerDiv.setAttribute('class',"grid_4 textright");
+
+                        headerDiv.innerHTML = '<span class="meta">' + item.name + '</span><div class="hr clearfix dotted">&nbsp;</div>';                        
+
+                        photoGallery.appendChild(headerDiv);
+
+
+                        for (i = 0; i < item.element.length; i++) { 
+                            var photoLink = document.createElement('a');
+
+                            if(i%3 == 0){
+                                photoLink.setAttribute('class',"portfolio_item float alpha");
+                            }else if(i%3 == 1){
+                                photoLink.setAttribute('class',"portfolio_item float");
+                            }else{
+                                photoLink.setAttribute('class',"portfolio_item float omega");
+                            }
+
+                            photoLink.setAttribute('rel',"shadowbox["+item.element[i].albumname+"]")
+                            photoLink.setAttribute('href',item.element[i].linkref);
+
+                            photoLink.innerHTML = '<span>' + item.element[i].text + '</span><img src="' + item.element[i].imgsource + '" alt=""></img>';
+
+                            photoGallery.appendChild(photoLink);
+
+                            if(i%3 == 2){
+                                var line = document.createElement("br");
+                                photoGallery.appendChild(line);
+                            }
+                        } //End for loop
+                    
+                    });
+
+                    json.videos.forEach(function(item){
+                        
+                        var headerDiv = document.createElement('div');
+                    
+                        headerDiv.setAttribute('class',"grid_4 textright");
+
+                        headerDiv.innerHTML = '<span class="meta">' + item.name + '</span><div class="hr clearfix dotted">&nbsp;</div>';                        
+
+                        videoGallery.appendChild(headerDiv);
+
+
+                        for (i = 0; i < item.element.length; i++) { 
+                            var videoLink = document.createElement('a');
+
+                            if(i%3 == 0){
+                                videoLink.setAttribute('class',"portfolio_item float alpha");
+                            }else if(i%3 == 1){
+                                videoLink.setAttribute('class',"portfolio_item float");
+                            }else{
+                                videoLink.setAttribute('class',"portfolio_item float omega");
+                            }
+
+                            videoLink.setAttribute('rel',"shadowbox["+item.element[i].albumname+"]")
+                            videoLink.setAttribute('href',item.element[i].linkref);
+
+                            videoLink.innerHTML = '<span>' + item.element[i].text + '</span><img src="' + item.element[i].imgsource + '" alt=""></img>';
+
+                            videoGallery.appendChild(videoLink);
+
+                            if(i%3 == 2){
+                                var line = document.createElement("br");
+                                videoGallery.appendChild(line);
+                            }
+                        } //End for loop                    
+                    });
+                });// End get json
+                
+                Shadowbox.init({ language: 'en', players: ['img', 'html', 'iframe', 'qt', 'wmp', 'swf', 'flv'] });
+            }); // End doc ready
+        </script>                    
+
+        <!--// Gallery -->
         
 	</head>
 	<body>
@@ -87,63 +174,25 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 <div class="pr grid_12 clearfix">&nbsp;</div>
                 
                 <!-- Portfolio Items -->                
-                <div class="catagory_1 clearfix">
+                <div  class="catagory_1 clearfix">
                     <div class="grid_3 textright" >
                         <span class="meta"></span>
                         <h4 class="title ">Images</h4>
                         <div class="hr clearfix dotted">&nbsp;</div>
                         <p>&nbsp;</p>
                     </div>
-                    <div class="grid_9">
-                        <div class="grid_4 textright" >
-                            <span class="meta">Maxime Chamberland</span>
-                            <div class="hr clearfix dotted">&nbsp;</div>
-                        </div>
-                        <a class="portfolio_item float alpha" rel="shadowbox[Chamberland]" href="images/gallery/fibers_big.png">
-                            <span>Fibers</span>
-                            <img class="" src="images/gallery/fibers.png"  alt=""/>
-                        </a>
-                        <a class="portfolio_item float "  rel="shadowbox[Chamberland]" href="images/gallery/glow.png">
-                            <span>Tumor</span>
-                            <img class="" src="images/gallery/tumor.png"  alt=""/>
-                        </a>
-                        <a class="portfolio_item float omega" rel="shadowbox[Chamberland]" href="images/gallery/mesh.png">
-                            <span>Fluid</span>
-                            <img class="" src="images/gallery/CSF.png"  alt=""/>
-                        </a>
+                    <div id="photofolio" class="grid_9">
+
+
                         
-                        </br> <!-- Need to skip line after 3 element -->
-                                                
-                        <a class="portfolio_item float alpha" rel="shadowbox[Chamberland]" href="images/gallery/cerebral.png">
-                            <span>Infiltration</span>
-                            <img class="" src="images/gallery/cerebral_p.png"  alt=""/>
-                        </a>
-                        <a class="portfolio_item float " rel="shadowbox[Chamberland]" href="images/gallery/bluefibershd.png">
-                            <span>Blue</span>
-                            <img class="" src="images/gallery/bluefibers.png"  alt=""/>
-                        </a>
-                        <a class="portfolio_item float omega" rel="shadowbox[Chamberland]" href="images/gallery/colorfull.png">
-                            <span>Fluid</span>
-                            <img class="" src="images/gallery/colorfull_t.png"  alt=""/>
-                        </a>
-                        
-                         </br> <!-- Need to skip line after 3 element -->
-                        <div class="grid_4 textright" >
-                            <span class="meta">Others</span>
-                            <div class="hr clearfix dotted">&nbsp;</div>
-                        </div>
-                        
-                        <a class="portfolio_item float omega" rel="shadowbox[Others]" href="images/logo4.png">
-                            <span>UdeS</span>
-                            <img class="" src="images/logo4.png"  alt=""/>
-                        </a>
+                       
                         
                     </div>
                 </div>
                     
                 <div class="pr clearfix grid_12">&nbsp;</div>
                 
-                <div class="catagory_1 clearfix">
+                <div  class="catagory_1 clearfix">
                     <div class="grid_3 textright" >
                         <span class="meta"></span>
                         <h4 class="title ">Videos</h4>
@@ -152,30 +201,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     </div>
                     </br>                                      
 
-                    <div class="grid_9">     
-                         <div class="grid_4 textright" >
-                            <span class="meta">Maxime Chamberland</span>
-                            <div class="hr clearfix dotted">&nbsp;</div>
-                        </div>
-                        <!-- For youtube, change /watch for /embed. -->
-                       
-                        <a class="portfolio_item float alpha" rel="shadowbox[Chamberland]" href="http://www.youtube.com/embed/t5KwiwMa6G0">
-                            <span>TedX</span>
-                            <img class="" src="images/gallery/ted.png"  alt=""/>
-                        </a>
-                        
-                        <a class="portfolio_item float" rel="shadowbox[Chamberland]" href="https://www.youtube.com/embed/Xm3tsTd9jb8">
-                            <span>UdeS</span>
-                            <img class="" src="images/gallery/dave.png"  alt=""/>
-                        </a>
-                        
-                        <a class="portfolio_item float omega" rel="shadowbox[Chamberland]" href="http://www.youtube.com/embed/Kdwm7cQv5PQ">
-                            <span>Real-time</span>
-                            <img class="" src="images/gallery/rtt.png"  alt=""/>
-                        </a>
-                        
-                        </br> <!-- Need to skip line after 3 element -->
-                        
+                    <div id="videofolio" class="grid_9">     
+                         
                         
                     </div>
                 </div>

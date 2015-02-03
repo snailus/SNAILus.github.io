@@ -10,24 +10,38 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<title> SNAIL | Home </title>
 		<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+
 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 		<script src="js/jquery.min.js"></script>
-		 <!-- Custom Theme files -->
-		 <!---- animated-css ---->
+
+		 <!-- Custom Theme files -->		
+         <!---- animated-css ---->
+
 		<link href="css/animate.css" rel="stylesheet" type="text/css" media="all">
 		<script src="js/wow.min.js"></script>
 		<script>
 		 new WOW().init();
 		</script>
+
 		<!---- animated-css ---->
 		<link href="css/style.css" rel='stylesheet' type='text/css' />
+
    		 <!-- Custom Theme files -->
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 		</script>
+
 		<!----webfonts--->
 		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
 		<!---//webfonts--->
+
+        <!----shadowbox--->
+        <link rel="stylesheet" type="text/css" href="shadowbox/shadowbox.css">
+        <script type="text/javascript" src="shadowbox/shadowbox.js"></script>
+        <script type="text/javascript">
+            Shadowbox.init({ language: 'en', players: ['img', 'html', 'iframe', 'qt', 'wmp', 'swf', 'flv'] });
+        </script>
+        <!----//shadowbox--->
         
         <!----Back to top--->
         <link rel="stylesheet" href="css/backtop.css"> <!-- Gem style -->
@@ -46,6 +60,13 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                         newdiv.setAttribute('class',"history-lines");
 
                         newdiv.innerHTML = '<ul><li class="date"><span>' + item.date + '</span></li><li class="date-info"><p><label>' + item.label + '</label>' + item.text + '</p></li></ul><div class="clearfix"> </div>';
+
+                        if(item.photo)
+                        {
+                            
+
+                        }
+
                         feed.appendChild(newdiv);
                     
                     });

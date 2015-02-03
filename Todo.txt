@@ -1,11 +1,14 @@
 Website todo :
 
-TODO : Call a refresh on calendar ? Or try to avoid to recreate the calendar again by removing events.
-Project page
-Fill news feed and publications with database ?
+- Fill  publications via database
+- Arranger les dates lors du clique sur calendrier. (Timezone)
+- Fill member page with json ?
+- Project page ?
 
 Style :
 
-Banner (Faire une belle banière avec bonne dimension)
-Logo image (Remplacer celui de l'uni)
-Photo membres
+- Icone pour le tab browser (http://stackoverflow.com/questions/4888377/how-to-add-a-browser-tab-icon-for-a-website)
+- Banner (Faire une belle banière avec bonne dimension)
+- Logo image (Remplacer celui de l'uni)
+- Photo membres
+
