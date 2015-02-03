@@ -43,6 +43,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
          <!-- Gallery fd -->
         <script type="text/javascript">
             $( document ).ready(function() {
+                
 
                 var photoGallery = document.getElementById("photofolio");
                 var videoGallery = document.getElementById("videofolio");                
@@ -123,8 +124,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                         } //End for loop                    
                     });
                 });// End get json
-                
-                Shadowbox.init({ language: 'en', players: ['img', 'html', 'iframe', 'qt', 'wmp', 'swf', 'flv'] });
+                Shadowbox.setup(); 
             }); // End doc ready
         </script>                    
 

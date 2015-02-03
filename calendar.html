@@ -66,8 +66,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				var authorizeButton = document.getElementById('authorize-button');
 				
 				if (authResult && !authResult.error) {
-					authorizeButton.style.visibility = 'hidden';	
-                    console.log("Button hidden and generate new calendar");		  
+					authorizeButton.style.visibility = 'hidden';		  
 					makeApiCall();
 				} else {
 					authorizeButton.style.visibility = '';
@@ -82,9 +81,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			}
 			
 			
-			function GeneratePublicCalendar(){
-			}
-
 			// Load the API and make an API call.  Display the results on the screen.
 			function makeApiCall() {
 
@@ -136,7 +132,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 							if(eventsList.length > 0)
 							{
                                 // qTip2
-                                var tooltip = $('</div>').qtip({
+                                var tooltip = $('<div/>').qtip({
                                     id: 'fullcalendar',
                                     prerender: true,
                                     content: {
@@ -206,7 +202,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                             'content.title':title
                                         })
                                         .reposition(event).show(event);
-                                       
                                         // Return false, to stay on this page.
                                         return false;
                                     },
@@ -239,7 +234,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			function GeneratePublicCalendar(){  
 			
                 // qTip2
-                var tooltip = $('</div>').qtip({
+                var tooltip = $('<div/>').qtip({
                     id: 'fullcalendar',
                     prerender: true,
                     content: {

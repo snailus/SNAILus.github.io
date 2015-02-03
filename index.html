@@ -26,6 +26,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		<!---- animated-css ---->
 		<link href="css/style.css" rel='stylesheet' type='text/css' />
 
+        <link href="css/mediaStyle.css" rel='stylesheet' type='text/css' />
+
    		 <!-- Custom Theme files -->
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
@@ -38,9 +40,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <!----shadowbox--->
         <link rel="stylesheet" type="text/css" href="shadowbox/shadowbox.css">
         <script type="text/javascript" src="shadowbox/shadowbox.js"></script>
-        <script type="text/javascript">
-            Shadowbox.init({ language: 'en', players: ['img', 'html', 'iframe', 'qt', 'wmp', 'swf', 'flv'] });
-        </script>
+        <script> Shadowbox.init({ skipSetup: true }); </script>
+
         <!----//shadowbox--->
         
         <!----Back to top--->
@@ -50,27 +51,28 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         
         <!-- News feed -->
         <script type="text/javascript">
-            $( document ).ready(function() {
 
+
+            $( document ).ready(function() {
+                
                 var feed = document.getElementById("newsfeed");
 
                 $.getJSON("news.json", function(json) {
                     json.news.forEach(function(item){
                         var newdiv = document.createElement('div');
                         newdiv.setAttribute('class',"history-lines");
-
-                        newdiv.innerHTML = '<ul><li class="date"><span>' + item.date + '</span></li><li class="date-info"><p><label>' + item.label + '</label>' + item.text + '</p></li></ul><div class="clearfix"> </div>';
-
+                        
                         if(item.photo)
                         {
-                            
+                            newdiv.innerHTML = '<ul><li class="date"><span id="dateSpan">' + item.date + '</span></li><li class="date-info"><p><label>' + item.label + '</label>' + item.text + '</p></li><li><a class ="portfolio_item float alpha"  href="'+ item.photo.linkref+'"><span>' + item.photo.text + '</span><img src="' + item.photo.imgsource + '" alt=""></img></li></ul><div class="clearfix"> </div>';
 
+                        }else{
+                            newdiv.innerHTML = '<ul><li class="date"><span id="dateSpan">' + item.date + '</span></li><li class="date-info"><p><label>' + item.label + '</label>' + item.text + '</p></li></ul><div class="clearfix"> </div>';
                         }
-
-                        feed.appendChild(newdiv);
-                    
+                        feed.appendChild(newdiv);                    
                     });
                 });
+                 Shadowbox.setup(); 
             });
         </script>
                     

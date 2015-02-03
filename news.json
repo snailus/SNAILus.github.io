@@ -4,7 +4,12 @@
         {
             "date": "Feb 2015",
             "label": "Update",
-            "text": "This website is now hosted with github webpages."
+            "text": "This website is now hosted with github webpages.",
+            "photo":{
+                "linkref": "images/logo4.png",
+                "text": "Website",
+                "imgsource": "images/logo4.png"
+            }
         },
         {
             "date": "Jan 2015",
