@@ -157,10 +157,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                 // Full calendar with google.
                                 $('#calendar').fullCalendar({                                    
                                     eventClick: function(data, event, view) {
-                                                              
+
                                         var title = '<h4 style="color:#fe5433;">'+data.title+'</h4>' ;
-                                        var content = '<p><b>Start:</b> '+data.start._d+'</br>' + 
-                                            (data.end && '<p><b>End:</b> '+data.end._d+'</p></br>' || '');                           
+                                        var content = '<p><b>Start:</b> '+moment(data.start._d).utc().format('ddd MMM D YYYY HH:mm')+'</br>' + 
+                                            (data.end && '<p><b>End:</b> '+moment(data.end._d).utc().format('ddd MMM D YYYY HH:mm')+'</p></br>' || '');                           
                                             
                                         // Check if the event have a description
                                         if(data.description){    
@@ -263,8 +263,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     eventClick: function(data, event, view) {
                                               
                         var title = '<h4 style="color:#fe5433;">'+data.title+'</h4>' ;
-                        var content = '<p><b>Start:</b> '+data.start._d+'</br>' + 
-                            (data.end && '<p><b>End:</b> '+data.end._d+'</p></br>' || '');                           
+                        var content = '<p><b>Start:</b> '+moment(data.start._d).utc().format('ddd MMM D YYYY HH:mm')+'</br>' + 
+                                            (data.end && '<p><b>End:</b> '+moment(data.end._d).utc().format('ddd MMM D YYYY HH:mm')+'</p></br>' || '');      1                           
                             
                         // Check if the event have a description
                         if(data.description){    
