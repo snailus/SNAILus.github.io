@@ -1,0 +1,345 @@
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE HTML>
+<html>
+	<head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title> SNAIL | Publication </title>
+		<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+		<script src="js/jquery.min.js"></script>
+		 <!-- Custom Theme files -->
+		 <!---- animated-css ---->
+		<link href="css/animate.css" rel="stylesheet" type="text/css" media="all">
+		<script src="js/wow.min.js"></script>
+		<script>
+		 new WOW().init();
+		</script>
+		<!---- animated-css ---->		
+		<link href="css/style.css" rel='stylesheet' type='text/css' />
+   		 <!-- Custom Theme files -->
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script type="application/x-javascript"> 
+            addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
+        </script>
+		</script>
+		<!----webfonts--->
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+		<!---//webfonts--->
+        
+        <!----Back to top--->
+        <link rel="stylesheet" href="css/backtop.css"> <!-- Gem style -->
+        <script src="js/modernizr.js"></script> <!-- Modernizr -->
+        <!----//Back to top--->
+        
+        <!----Tag manager--->
+        <link rel="stylesheet" href="css/tagmanager.css">
+        <script src="js/tagmanager.js"></script> 
+       
+        <!----//Tag manager--->
+        
+        <!----Search engine + List--->
+        <link rel="stylesheet" href="css/publication.css">
+        <script>
+            function displayAdv(){
+                
+                clearForm();
+                
+                var d = document.getElementById('Advanced').style.display;
+                
+                if(d == 'none'){ 
+                    document.getElementById('Advanced').style.display = 'block' 
+                    
+                    document.getElementById('NormalSearch').style.display = 'none';
+                }else{
+                    document.getElementById('Advanced').style.display = 'none';
+                    
+                    document.getElementById('NormalSearch').style.display = 'block'
+                }                  
+            }
+        </script>       
+        
+        <!----//Search engine + List--->
+	</head>
+	<body>
+		<div class="bg">
+			<div class="container">
+		<!----- start-header---->
+			<div id="home" class="header" data-wow-delay="0.4s>
+					<div class="top-header">
+						<div class="logo" data-wow-delay="0.4s">
+							<a href="index.html"><img src="images/logo4.png" title="dreams" /></a>
+						</div>
+						<!----start-top-nav---->
+						 <nav class="top-nav" data-wow-delay="0.4s">
+						  <span class="menu"> </span>
+							<ul class="top-nav">
+								<li><a href="index.html" class="scroll">Home</a></li>
+                                <li><a href="calendar.html">Calendar</a></li>
+								<li class="active"><a href="publications.html">Publications</a></li>
+								<li><a href="project.html">Project</a></li>
+								<li><a href="team.html">Lab members</a></li>
+                                <li><a href="photo.html">Gallery</a></li>
+								<li><a href="contact.html">Contact</a></li>
+							</ul>
+						</nav>
+						<script>
+                            $("span.menu").click(function(){
+                                $(".top-nav ul").slideToggle(200);
+                            });
+                        </script>
+
+						<div class="clearfix"> </div>
+					</div>
+				</div>
+			</div>
+			<!----- //End-header---->
+			<!----- mid-grids ----->
+			<div class="mid-grids">
+				<div class="container">
+					<div class="mid-grid">
+                        <h2 class="grid_1 caption clearfix">Our Publications (This page is under construction)</h2> 
+						<div class="listing" id="publicationsList">
+                        
+                            <form name="searchform"> 
+                                <div id="NormalSearch">
+                                    <input id="NormalSearchInput" class="search searchbox" type="text" placeholder="Search" > 
+                                    <a id="advancedLink" style="color:blue;" onclick="displayAdv()">advanced filter</a>  
+                                    
+                                </div>    
+                                
+                                <div id="Advanced" style="display:none;">
+                                    <a id="advancedLink" style="color:blue;" onclick="displayAdv()">hide filter</a>  
+                                    <br><br>
+                                    <input class="searchbox" type="text" name="title" placeholder="Publication title" >                                
+                                    <input class="searchbox" type="text" name="author" placeholder="Author name">                                
+                                    <input class="searchbox" type="text" name="coauthor" placeholder="Co-author name">                                
+                                    <br>
+                                    
+                                    Release date:
+                                    <select name="release">
+                                        <option value="">All</option>
+                                        <option value="2015">2015</option>
+                                        <option value="2014">2014</option>
+                                        <option value="2013">2013</option>
+                                        <option value="2012">2012</option>
+                                        <option value="under">Under 2012</option>
+                                    </select>    
+                    
+                                    Type:
+                                    <select name="ptype">
+                                        <option value="">All</option>
+                                        <option value="Abstract">Abstract</option>
+                                        <option value="Article">Article</option>
+                                        <option value="Thesis">Thesis</option>
+                                        <option value="Book chapter">Book chapter</option>
+                                        <option value="Conference">Conference</option>
+                                    </select>   
+                                    
+                                    <input type="text" name="tags" placeholder="Tags" class="tm-input"/>                            
+                                   
+                                    <script>
+                                        jQuery(".tm-input").tagsManager({
+                                            hiddenTagListName : "hiddenTag"
+                                        });
+                                    </script>  
+
+                                     <br><br>    
+                                    <input class="button" type="button" value="Submit" onclick="validateForm()">                            
+                                    <input class="button" type="reset" value="clear" onClick="clearForm()">  
+                                </div>
+                            </form>
+                            <br><br>                                                     
+                                       
+                            <ul class="list">
+                                <li>
+                                    <a href="#"><img src="images/smallpdf.png" class="img_left"/></a>
+                                    <p class="title">EEG + fMRI on human brain.</p>
+                                    <p class="author">Kevin Whittingstall</p>
+                                    <p class="coauthor"></p>
+                                    <p class="release">2014</p> 
+                                    <br> <!-- Seperate Tags from publications informations -->      
+                                    <p class="ptype"><span class="ptype">Abstract</span></p>
+                                    <p class="tag"><span class="tag">EEG</span><span class="tag">fMRI</span><span class="tag">Human</span></p>                             
+                                </li>
+                                <li>
+                                    <a href="#"><img src="images/smallpdf.png" class="img_left"/></a>
+                                    <p class="title">Publication example #1</p>
+                                    <p class="author">Maxime Chamberland</p>
+                                    <p class="coauthor">Kevin Whittingstall, Michaël Bernier</p>
+                                    <p class="release">2012</p>
+                                    <br> <!-- Seperate Tags from publications informations -->
+                                    <p class="ptype"><span class="ptype">Article</span></p>
+                                    <p class="tag"><span class="tag">Tractography</span><span class="tag">Brain</span></p>
+                                </li>
+                                <li>
+                                    <p class="title">Publication example #2</p>
+                                    <p class="author">Kevin Whittingstall</p>
+                                    <p class="coauthor"></p>
+                                    <p class="release">2000</p>
+                                    <br> <!-- Seperate Tags from publications informations -->
+                                    <p class="ptype"><span class="ptype">Thesis</span></p>
+                                    <p class="tag"><span class="tag">EEG</span><span class="tag">Monkey</span><span class="tag">Animal</span></p>
+                                </li>      
+                            </ul>  
+                            <div id="NoResult" style="display:none;">
+                                <p> Sorry, no publications matched your search. Please try again. </p>
+                            </div>
+                                
+                        </div>  
+                        
+                        <script type="text/javascript" src="js/list.js"></script>
+                        <script type="text/javascript">
+                            var options = {
+                              valueNames: [ 'title','author','coauthor', 'release','ptype','tag' ]
+                            };
+
+                            var searchList = new List('publicationsList', options);                            
+                                                        
+                            searchList.on('filterComplete',listUpdated);
+                            searchList.on('searchComplete',listUpdated);
+                            
+                            function listUpdated(){
+                                searchList.visibleItems.length == 0 ? document.getElementById("NoResult").style.display = "block" : document.getElementById("NoResult").style.display = "none";
+                            }
+                            
+                            function clearForm(){                                                                   
+                                
+                                searchList.searched = false;
+                                searchList.update();
+                               
+                                jQuery(".tm-input").tagsManager('empty');                                 
+                                document.forms["searchform"].reset()
+                                
+                                validateForm();
+                            }
+                            
+                            function validateForm(){
+                                var title = document.forms["searchform"].elements["title"].value;
+                                var author = document.forms["searchform"].elements["author"].value;
+                                var coauthor = document.forms["searchform"].elements["coauthor"].value;
+                                var release = document.forms["searchform"].elements["release"].value; 
+                                var pType = document.forms["searchform"].elements["ptype"].value;                                
+                                var tags = document.forms["searchform"].elements["hiddenTag"].value;
+                                                                              
+                                if(tags)
+                                    var res = tags.split(",");  
+                               
+                                searchList.filter(function(item){                                
+                                    if(res){        
+                                    
+                                        var tagArray = [];
+                                        
+                                        res.forEach(function(entry){
+                                            if(item.values().tag.toLowerCase().search(entry.toLowerCase()) >= 0){
+                                                tagArray.push(true);                                                
+                                            }else{
+                                                tagArray.push(false);
+                                            }                                            
+                                        });
+                                        
+                                        // TODO :
+                                        // With tagArray, contain only asked tag, or at least one ?
+                                        // Currently asking for all.
+                                        // and right now, it's text searching, do we want exact tags ?
+                                        if(release == "under")                                        
+                                            return ( 
+                                                item.values().title.toLowerCase().search(title.toLowerCase()) >= 0 &&
+                                                item.values().author.toLowerCase().search(author.toLowerCase()) >= 0 &&
+                                                item.values().coauthor.toLowerCase().search(coauthor.toLowerCase()) >= 0 &&
+                                                item.values().release < 2012 &&
+                                                item.values().ptype.toLowerCase().search(pType.toLowerCase()) >= 0 &&
+                                                tagArray.every(Boolean)
+                                            )
+                                        else                                       
+                                            return ( 
+                                                item.values().title.toLowerCase().search(title.toLowerCase()) >= 0 &&
+                                                item.values().author.toLowerCase().search(author.toLowerCase()) >= 0 &&
+                                                item.values().coauthor.toLowerCase().search(coauthor.toLowerCase()) >= 0 &&
+                                                item.values().release.search(release) >= 0 &&
+                                                item.values().ptype.toLowerCase().search(pType.toLowerCase()) >= 0 &&
+                                                tagArray.every(Boolean)
+                                            )
+                                    }else{                                    
+                                    
+                                        if(release == "under")
+                                            return ( 
+                                                item.values().title.toLowerCase().search(title.toLowerCase()) >= 0 &&
+                                                item.values().author.toLowerCase().search(author.toLowerCase()) >= 0 &&
+                                                item.values().coauthor.toLowerCase().search(coauthor.toLowerCase()) >= 0 &&
+                                                item.values().release < 2012 &&
+                                                item.values().ptype.toLowerCase().search(pType.toLowerCase()) >= 0 
+                                            )
+                                        else
+                                            return ( 
+                                                item.values().title.toLowerCase().search(title.toLowerCase()) >= 0 &&
+                                                item.values().author.toLowerCase().search(author.toLowerCase()) >= 0 &&
+                                                item.values().coauthor.toLowerCase().search(coauthor.toLowerCase()) >= 0 &&
+                                                item.values().release.search(release) >= 0 &&
+                                                item.values().ptype.toLowerCase().search(pType.toLowerCase()) >= 0
+                                            )
+                                    }
+                                
+                                });
+                            }
+                        </script>
+                        
+						<div class="clearfix"> </div>
+					</div>
+				</div>
+			</div>
+			<!----- mid-grids ----->
+            
+            <a href="#0" class="cd-top">Top</a>
+            <script src="js/backtop.js"></script> <!-- Gem jQuery -->
+            
+			<!---- footer ---->
+			<div class="footer">
+				<div class="container">
+					<div class="footer-grids">
+						<div class="col-md-3 footer-grid ftr-sec wow fadeInLeft" data-wow-delay="0.4s">
+							<h3>Navigation</h3>
+							<ul>
+								<li><a href="index.html">Home</a></li>
+                                <li><a href="calendar.html">Calendar</a></li>
+								<li><a href="publications.html">Publications</a></li>
+								<li><a href="project.html">Projects</a></li>
+								<li><a href="team.html">Lab members</a></li>
+								<li><a href="photo.html">Gallery</a></li>
+								<li><a href="contact.html">Contact</a></li>								
+							</ul>
+						</div>                                
+                              
+                        <!--
+						<div class="col-md-3 footer-grid ftr-sec wow fadeInRight" data-wow-delay="0.4s">
+							<h3>Follows</h3>
+							<ul class="social-icons">
+								<li><a class="twitter" href="#"><span> </span>twitter</a></li>
+								<li><a class="facebook" href="#"><span> </span>Facebook</a></li>
+								<li><a class="googlepluse" href="#"><span> </span>google+</a></li>								
+							</ul>
+						</div>
+                        -->
+						<div class="col-md-3 footer-grid ftr-sec ftr wow fadeInRight" data-wow-delay="0.4s">
+							<h3>Our Location</h3>
+							<ul class="location">
+								<li><a class="hm" href="#"><span> </span> CHUS - Faculté de médecine et des sciences de la santé
+                                                                3001, 12e avenue Nord
+                                                                Sherbrooke (Qc) J1H 5N4
+                                                                Canada </a></li>
+								<li><a class="phn" href="#"><span> </span> Phone : ?</a></li>
+							</ul>							
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+					<p class="copy-right wow fadeInRight" data-wow-delay="0.4s"">2014 &copy; Design by <a href="http://w3layouts.com/">W3layouts</a></p>
+				</div>
+			</div>
+			<!---- footer ---->
+	</body>
+</html>
+

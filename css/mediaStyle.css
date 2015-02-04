@@ -1,0 +1,52 @@
+/* Custom Grid */
+	.container_12 						{margin-left:auto; margin-right:auto; width:1020px;}
+	.float								{display:inline; float:left; position:relative;}
+    
+    .grid_1{display:inline; float:left; position:relative; margin-left:20px; margin-right:20px;}
+	.grid_3{display:inline; float:left; position:relative; margin-left:100px; margin-right:20px;}	
+	.grid_9{display:inline; float:left; position:relative; margin-left:100px; margin-right:20px;}
+	
+    .container_12 .grid_1 				{width:215px;}
+	.container_12 .grid_3 				{width:215px;}
+	.container_12 .grid_9 				{width:725px;}
+	
+/* Global Classes */
+
+	.hr									{border:none; border-bottom:1px solid #f0f0f0; border-top:1px solid #d6d6d6; clear:both; height:0; line-height:0; width:100%; font-size:0; padding:0 ;margin-bottom :20px;}
+	.pr									{border:none; border-bottom:1px solid #f0f0f0; border-top:1px solid #d6d6d6; clear:both; height:0; line-height:0; width:100%; font-size:0; padding:0; margin-bottom :30px;}
+	.dotted								{border-style:dashed; border-left:0; border-right:0;}	
+	.meta								{font-weight:normal;font-family:'Lucida Grande', 'Lucida Sans Unicode', Tahoma, Arial, san-serif; font-size:11px; color:#999999 !important; line-height:16px; text-transform:none; text-shadow:none;}
+	.right								{float:right;}
+	.left								{float:left;}
+	.img_left							{float:left; margin:10px 20px 10px 0;}
+	.img_right							{float:right; margin:10px 0 10px 20px;}
+	.clear								{clear:both; display:block; overflow:hidden; visibility:hidden; width:0; height:0;}
+	.textright 							{text-align:right;}
+	.error,
+	.success							{display:none;}
+
+    /* Portfolio Styles */
+	
+	.portfolio_item						
+    {width:223px; position:relative; margin:0 10px 20px 10px; padding:0;}
+	
+    .portfolio_item img					
+    {padding:5px; border: 1px solid #aaaaaa; width:211px; -webkit-border-radius: 5px; -moz-border-radius: 5px; background:#f9f9f9; margin-bottom:0px;}
+    
+    .portfolio_item span				        
+    {display:none;}
+	
+    .portfolio_item:hover img			
+    {-webkit-box-shadow:0px 0px 20px #787878; -moz-box-shadow:0px 0px 20px #787878; background:#f9f9f9;}
+	
+    .portfolio_item:hover span			
+    {display:inline; position:absolute; bottom:6px; right:18px; padding:10px 15px; background:#f9f9f9; color:#000000; z-index:999; border-left:1px solid #aaaaaa; border-top:1px solid #aaaaaa; -webkit-border-top-left-radius: 5px; -moz-border-radius-topLeft: 5px;}
+	
+
+/* Overiding Classes */
+/* Must remain at the bottom of the stylesheet */
+
+	.clearfix:after						{clear:both; content:' '; display:block; font-size:0; line-height:0; visibility:hidden; width:0; height:0;}
+	* html .clearfix 					{height:1%;}
+	.alpha								{margin-left:0;}
+	.omega								{margin-right:0;}

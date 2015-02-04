@@ -1,0 +1,280 @@
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE HTML>
+<html>
+	<head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title> SNAIL | Gallery </title>
+		<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+		<script src="js/jquery.min.js"></script>
+		 <!-- Custom Theme files -->
+		 <!---- animated-css ---->
+		<link href="css/animate.css" rel="stylesheet" type="text/css" media="all">
+		<script src="js/wow.min.js"></script>
+		<script>
+		 new WOW().init();
+		</script>
+		<link href="css/style.css" rel='stylesheet' type='text/css' />
+        <link href="css/mediaStyle.css" rel='stylesheet' type='text/css' />
+   		 <!-- Custom Theme files -->
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+        
+        <!-- Add mousewheel plugin (this is optional) -->
+        <script type="text/javascript" src="fancybox/lib/jquery.mousewheel-3.0.6.pack.js"></script>
+
+        <!-- Add fancyBox -->
+        <link rel="stylesheet" href="fancybox/source/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+        <script type="text/javascript" src="fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+        <!-- Optionally add helpers - button, thumbnail and/or media -->
+        <link rel="stylesheet" href="fancybox/source/helpers/jquery.fancybox-buttons.css?v=1.0.5" type="text/css" media="screen" />
+        <script type="text/javascript" src="fancybox/source/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+        <script type="text/javascript" src="fancybox/source/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+
+        <link rel="stylesheet" href="fancybox/source/helpers/jquery.fancybox-thumbs.css?v=1.0.7" type="text/css" media="screen" />
+        <script type="text/javascript" src="fancybox/source/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+        
+		<!----webfonts--->
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+		<!---//webfonts--->
+        
+        <!----Back to top--->
+        <link rel="stylesheet" href="css/backtop.css"> <!-- Gem style -->
+        <script src="js/modernizr.js"></script> <!-- Modernizr -->
+        <!----//Back to top--->
+
+         <!-- Gallery fd -->
+        <script type="text/javascript">
+            $( document ).ready(function() {
+                
+
+                var photoGallery = document.getElementById("photofolio");
+                var videoGallery = document.getElementById("videofolio");                
+
+                $.getJSON("gallery.json", function(json) {
+
+                    json.photos.forEach(function(item){
+                        
+                        var headerDiv = document.createElement('div');
+
+                    
+                        headerDiv.setAttribute('class',"grid_4 textright");
+
+                        headerDiv.innerHTML = '<span class="meta">' + item.name + '</span><div class="hr clearfix dotted">&nbsp;</div>';                        
+
+                        photoGallery.appendChild(headerDiv);
+
+
+                        for (i = 0; i < item.element.length; i++) { 
+                            var photoLink = document.createElement('a');
+
+                            if(i%3 == 0){
+                                photoLink.setAttribute('class',"fancybox portfolio_item float alpha");
+                            }else if(i%3 == 1){
+                                photoLink.setAttribute('class',"fancybox portfolio_item float");
+                            }else{
+                                photoLink.setAttribute('class',"fancybox portfolio_item float omega");
+                            }
+
+                            photoLink.setAttribute('rel',item.element[i].albumname);
+                            photoLink.setAttribute('href',item.element[i].linkref);
+                            photoLink.setAttribute('title',item.element[i].text);
+
+                            photoLink.innerHTML = '<span>' + item.element[i].title + '</span><img src="' + item.element[i].imgsource + '" alt=""></img>';
+
+                            photoGallery.appendChild(photoLink);
+
+                            if(i%3 == 2){
+                                var line = document.createElement("br");
+                                photoGallery.appendChild(line);
+                            }
+                        } //End for loop
+                    
+                    });
+
+                    json.videos.forEach(function(item){
+                        
+                        var headerDiv = document.createElement('div');
+                    
+                        headerDiv.setAttribute('class',"grid_4 textright");
+
+                        headerDiv.innerHTML = '<span class="meta">' + item.name + '</span><div class="hr clearfix dotted">&nbsp;</div>';                        
+
+                        videoGallery.appendChild(headerDiv);
+
+
+                        for (i = 0; i < item.element.length; i++) { 
+                            var videoLink = document.createElement('a');
+
+                            if(i%3 == 0){
+                                videoLink.setAttribute('class',"fancybox-media portfolio_item float alpha");
+                            }else if(i%3 == 1){
+                                videoLink.setAttribute('class',"fancybox-media portfolio_item float");
+                            }else{
+                                videoLink.setAttribute('class',"fancybox-media portfolio_item float omega");
+                            }
+
+
+                            videoLink.setAttribute('rel',item.element[i].albumname);
+                            videoLink.setAttribute('href',item.element[i].linkref);
+                            videoLink.setAttribute('title',item.element[i].text);
+
+                            videoLink.innerHTML = '<span>' + item.element[i].title + '</span><img src="' + item.element[i].imgsource + '" alt=""></img>';
+
+                            videoGallery.appendChild(videoLink);
+
+                            if(i%3 == 2){
+                                var line = document.createElement("br");
+                                videoGallery.appendChild(line);
+                            }
+                        } //End for loop                    
+                    });
+                });// End get json
+                $(".fancybox").fancybox();
+                $('.fancybox-media').fancybox({
+		            openEffect  : 'none',
+		            closeEffect : 'none',
+		            helpers : {
+			            media : {}
+		            }
+	            });
+            }); // End doc ready
+        </script>                    
+
+        <!--// Gallery -->
+        
+	</head>
+	<body>
+		<div class="bg">
+			<div class="container">
+		<!----- start-header---->
+			<div id="home" class="header" data-wow-delay="0.4s>
+					<div class="top-header">
+						<div class="logo" data-wow-delay="0.4s">
+							<a href="index.html"><img src="images/logo4.png" title="dreams" /></a>
+						</div>
+						<!----start-top-nav---->
+						 <nav class="top-nav" data-wow-delay="0.4s">
+						  <span class="menu"> </span>
+							<ul class="top-nav">
+								<li><a href="index.html" class="scroll">Home</a></li>
+                                <li><a href="calendar.html">Calendar</a></li>
+								<li><a href="publications.html">Publications</a></li>
+								<li><a href="project.html">Project</a></li>
+								<li><a href="team.html">Lab members</a></li>
+                                <li  class="active"><a href="photo.html">Gallery</a></li>
+								<li><a href="contact.html">Contact</a></li>
+							</ul>
+						</nav>
+						<script>
+					$("span.menu").click(function(){
+						$(".top-nav ul").slideToggle(200);
+					});
+				</script>
+
+						<div class="clearfix"> </div>
+					</div>
+				</div>
+			</div>
+			<!----- //End-header---->
+            
+			<!----- mid-grids ----->
+            <div class="container">	
+			    <div class="hr grid_12 clearfix">&nbsp;</div>			
+                    <!-- Catch Line and Link -->
+                    <h2 class="grid_1 caption clearfix">Gallery (This page is under construction)</h2>  
+
+                    
+                    <div class="pr grid_12 clearfix">&nbsp;</div>
+                    
+                    <!-- Portfolio Items -->                
+                    <div  class="catagory_1 clearfix">
+                        <div class="grid_3 textright" >
+                            <span class="meta"></span>
+                            <h4 class="title ">Images</h4>
+                            <div class="hr clearfix dotted">&nbsp;</div>
+                            <p>&nbsp;</p>
+                        </div>
+                        <div id="photofolio" class="grid_9">
+
+
+                            
+                           
+                            
+                        </div>
+                    </div>
+                        
+                    <div class="pr clearfix grid_12">&nbsp;</div>
+                    
+                    <div  class="catagory_1 clearfix">
+                        <div class="grid_3 textright" >
+                            <span class="meta"></span>
+                            <h4 class="title ">Videos</h4>
+                            <div class="hr clearfix dotted">&nbsp;</div>
+                            <p>&nbsp;</p>
+                        </div>
+                        </br>                                      
+
+                        <div id="videofolio" class="grid_9">     
+                             
+                            
+                        </div>
+                    </div>
+                    <div class="pr clearfix grid_12">&nbsp;</div>
+            </div>
+			<!----- mid-grids ----->
+            
+            <a href="#0" class="cd-top">Top</a>
+            <script src="js/backtop.js"></script> <!-- Gem jQuery -->
+            
+			<!---- footer ---->
+			<div class="footer">
+				<div class="container">
+					<div class="footer-grids">
+						<div class="col-md-3 footer-grid ftr-sec wow fadeInLeft" data-wow-delay="0.4s">
+							<h3>Navigation</h3>
+							<ul>
+								<li><a href="index.html">Home</a></li>
+                                <li><a href="calendar.html">Calendar</a></li>
+								<li><a href="publications.html">Publications</a></li>
+								<li><a href="project.html">Projects</a></li>
+								<li><a href="team.html">Lab members</a></li>
+								<li><a href="photo.html">Gallery</a></li>
+								<li><a href="contact.html">Contact</a></li>								
+							</ul>
+						</div>                                
+                              <!--  
+						<div class="col-md-3 footer-grid ftr-sec wow fadeInRight" data-wow-delay="0.4s">
+							<h3>Follows</h3>
+							<ul class="social-icons">
+								<li><a class="twitter" href="#"><span> </span>twitter</a></li>
+								<li><a class="facebook" href="#"><span> </span>Facebook</a></li>
+								<li><a class="googlepluse" href="#"><span> </span>google+</a></li>								
+							</ul>
+						</div>
+                        -->
+						<div class="col-md-3 footer-grid ftr-sec ftr wow fadeInRight" data-wow-delay="0.4s">
+							<h3>Our Location</h3>
+							<ul class="location">
+								<li><a class="hm" href="#"><span> </span> CHUS - Faculté de médecine et des sciences de la santé
+                                                                3001, 12e avenue Nord
+                                                                Sherbrooke (Qc) J1H 5N4
+                                                                Canada </a></li>
+								<li><a class="phn" href="#"><span> </span> Phone : ?</a></li>
+							</ul>							
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+					<p class="copy-right wow fadeInRight" data-wow-delay="0.4s"">2014 &copy; Design by <a href="http://w3layouts.com/">W3layouts</a></p>
+				</div>
+			</div>
+			<!---- footer ---->
+	</body>
+</html>
+

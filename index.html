@@ -1,73 +1,221 @@
-<!DOCTYPE html>
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE HTML>
 <html>
-<head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title> snail - En construction</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width">
+	<head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title> SNAIL | Home </title>
+		<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+		<script src="js/jquery.min.js"></script>
+
+		 <!-- Custom Theme files -->		
+         <!---- animated-css ---->
+
+		<link href="css/animate.css" rel="stylesheet" type="text/css" media="all">
+		<script src="js/wow.min.js"></script>
+		<script>
+		 new WOW().init();
+		</script>
+
+		<!---- animated-css ---->
+		<link href="css/style.css" rel='stylesheet' type='text/css' />
+
+        <link href="css/mediaStyle.css" rel='stylesheet' type='text/css' />
+
+   		 <!-- Custom Theme files -->
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+
+		<!----webfonts--->
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+		<!---//webfonts--->
+
+        <!-- Add mousewheel plugin (this is optional) -->
+        <script type="text/javascript" src="fancybox/lib/jquery.mousewheel-3.0.6.pack.js"></script>
+
+        <!-- Add fancyBox -->
+        <link rel="stylesheet" href="fancybox/source/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+        <script type="text/javascript" src="fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+        <!-- Optionally add helpers - button, thumbnail and/or media -->
+        <link rel="stylesheet" href="fancybox/source/helpers/jquery.fancybox-buttons.css?v=1.0.5" type="text/css" media="screen" />
+        <script type="text/javascript" src="fancybox/source/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+        <script type="text/javascript" src="fancybox/source/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+
+        <link rel="stylesheet" href="fancybox/source/helpers/jquery.fancybox-thumbs.css?v=1.0.7" type="text/css" media="screen" />
+        <script type="text/javascript" src="fancybox/source/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+
+        <!----//shadowbox--->
         
-  <style>
-  body {
-      font-size: 1em;
-      height: 100%;
-      padding: 0;
-      margin: 0;
-      background-color: #eeeeee;
-  }
-
-  h1{
-      font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-      font-size: 1.9em;
-      font-weight: bold;
-      color: #000000;
-  }  
-
-  h2{
-          font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-          font-size: 1.6em;
-          font-weight: bold;
-          color: #40921e;
-  }
-
-  .container{
-      text-align: center;
-      border: 8px solid #d9d9d9;
-      margin: 10%;
-      background: #ffffff;
-      height: 415px;  
-  }
-
-  .container:before{
-      content: '';
-      display: inline-block;
-      height: 100%;
-      vertical-align: middle;
-      margin-right: -0.25em;
-  }
-
-  .message{
-      display: inline-block;
-      vertical-align: middle;
-      margin: 0 auto;
-      padding: 10px;
-  }
-  
-  img{
-      float:left;
-  }
-
-  </style>
+        <!----Back to top--->
+        <link rel="stylesheet" href="css/backtop.css"> <!-- Gem style -->
+        <script src="js/modernizr.js"></script> <!-- Modernizr -->
+        <!----//Back to top--->
         
-    </head>
-<body>
-    <div class="container">    
-        <div class="message">     
-      <img src='images/imageEW.png' alt='exclamation'>
-      <h1>En construction</h1>
-      <h2>snail.recherche.usherbrooke.ca est en maintenance</h2>
-      </div>
-    </div>
-</body>
+        <!-- News feed -->
+        <script type="text/javascript">
+
+
+            $( document ).ready(function() {
+                
+                var feed = document.getElementById("newsfeed");
+
+                $.getJSON("news.json", function(json) {
+                    json.news.forEach(function(item){
+                        var newdiv = document.createElement('div');
+                        newdiv.setAttribute('class',"history-lines");
+                        
+                        if(item.photo)
+                        {
+                            newdiv.innerHTML = '<ul><li class="date"><span id="dateSpan">' + item.date + '</span></li><li class="date-info"><p><label>' + item.label + '</label>' + item.text + '</p></li><li><a class ="fancybox portfolio_item float alpha" rel="News" title="'+ item.photo.text +'" href="'+ item.photo.linkref+'"><span>' + item.photo.title + '</span><img src="' + item.photo.imgsource + '" alt=""></img></li></ul><div class="clearfix"> </div>';
+
+                        }else{
+                            newdiv.innerHTML = '<ul><li class="date"><span id="dateSpan">' + item.date + '</span></li><li class="date-info"><p><label>' + item.label + '</label>' + item.text + '</p></li></ul><div class="clearfix"> </div>';
+                        }
+                        feed.appendChild(newdiv);                    
+                    });
+                });
+                $(".fancybox").fancybox();
+            });
+        </script>
+                    
+
+        <!--// News feed -->
+        
+	</head>
+	<body>
+		<div class="bg">
+			<div class="container">
+		<!----- start-header---->
+			<div id="home" class="header wow bounceInDown" data-wow-delay="0.4s">
+					<div class="top-header">
+						<div class="logo wow bounceInDown" data-wow-delay="0.4s">
+							<a href=""><img src="images/logo4.png" title="dreams" /></a>
+						</div>
+						<!----start-top-nav---->
+						 <nav class="top-nav wow bounceInDown" data-wow-delay="0.4s">
+						  <span class="menu"> </span>
+							<ul class="top-nav">
+								<li class="active"><a href="index.html" class="scroll">Home</a></li>
+                                <li><a href="calendar.html">Calendar</a></li>
+								<li><a href="publications.html">Publications</a></li>
+								<li><a href="project.html">Project</a></li>
+								<li><a href="team.html">Lab members</a></li>
+                                <li><a href="photo.html">Gallery</a></li>
+								<li><a href="contact.html">Contact</a></li>
+							</ul>
+						</nav>
+						<script>
+					$("span.menu").click(function(){
+						$(".top-nav ul").slideToggle(200);
+					});
+				</script>
+
+						<div class="clearfix"> </div>
+					</div>
+				</div>				
+			</div>
+			<!----- //End-header---->
+			<!----- top-grids ----->
+			<div class="container">
+                <div class="welcome-note">
+					<div class="welcome-note-grids">
+						<div class="col-md-4 wow fadeInLeft" data-wow-delay="0.4s">
+							<div class="welcome-note-left text-right">
+								<h2>Welcome</h2>
+								<span>to SNAIL Website</span>
+							</div>
+						</div> 
+						<div class="col-md-8 welcome-grid">
+							<div class="welcome-note-right ">
+								<div class="col-md-8">
+									<div class="welcome-note-right-left">
+										<h3>Sherbrooke Neuro Analysis and Imaging Lab</h3>
+										<p> You have access to members publications, projects and to the team calendar.</p>
+									</div>
+								</div>								
+								<div class="clearfix"> </div>
+							</div>
+						</div> 
+						<div class="clearfix"> </div>
+					</div>
+				</div>
+			</div>
+			<div class="clearfix"> </div>
+			<!----- top-grids ----->
+            
+			<!----- mid-grids ----->
+			<div class="mid-grids">
+				<div class="container">
+					<div class="mid-grid wow bounceInLeft" data-wow-delay="0.4s">
+                        <p>Welcome ! The lab is headed by <a style="color:#fe5433" href="http://www.usherbrooke.ca/medecine/recherche/profils-de-chercheurs/whittingstall-kevin/english-version/"> Professor Kevin Whittingstall, Ph.D </a> and focuses on the detection of even the most subtle changes in neurovascular coupling.  For this, we are developing methods that can simultaneously track neural activity (EEG) and blood flow (fMRI) in the brain with great spatial and temporal precision.</p>	
+						<div class="clearfix"> </div>
+					</div>
+				</div>
+			</div>
+            
+            <!--history-->
+            <div class="container wow bounceInRight " data-wow-delay="0.4s">               
+                <div id="newsfeed" class="team-history">
+                    <h3>News feed</h3>    
+                    <!-- Element are added via news.json and javascript on top -->                
+                </div>
+            </div>
+            <!--history-->	
+            
+			<!----- mid-grids ----->
+            
+            <a href="#0" class="cd-top">Top</a>
+            <script src="js/backtop.js"></script> <!-- Gem jQuery -->
+            
+			<!---- footer ---->
+			<div class="footer">
+				<div class="container">
+					<div class="footer-grids">
+						<div class="col-md-3 footer-grid ftr-sec wow fadeInLeft" data-wow-delay="0.4s">
+							<h3>Navigation</h3>
+							<ul>
+								<li><a href="index.html">Home</a></li>
+                                <li><a href="calendar.html">Calendar</a></li>
+								<li><a href="publications.html">Publications</a></li>
+								<li><a href="project.html">Projects</a></li>
+								<li><a href="team.html">Lab members</a></li>
+								<li><a href="photo.html">Gallery</a></li>
+								<li><a href="contact.html">Contact</a></li>								
+							</ul>
+						</div>                                
+                        <!--   
+						<div class="col-md-3 footer-grid ftr-sec wow fadeInRight" data-wow-delay="0.4s">
+							<h3>Follows</h3>
+							<ul class="social-icons">
+								<li><a class="twitter" href="#"><span> </span>twitter</a></li>
+								<li><a class="facebook" href="#"><span> </span>Facebook</a></li>
+								<li><a class="googlepluse" href="#"><span> </span>google+</a></li>								
+							</ul>
+						</div>
+                        -->
+						<div class="col-md-3 footer-grid ftr-sec ftr wow fadeInRight" data-wow-delay="0.4s">
+							<h3>Our Location</h3>
+							<ul class="location">
+								<li><a class="hm" href="#"><span> </span> CHUS - Faculté de médecine et des sciences de la santé
+                                                                3001, 12e avenue Nord
+                                                                Sherbrooke (Qc) J1H 5N4
+                                                                Canada </a></li>
+								<li><a class="phn" href="#"><span> </span> Phone : ?</a></li>
+							</ul>							
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+					<p class="copy-right wow fadeInRight" data-wow-delay="0.4s"">2014 &copy; Design by <a href="http://w3layouts.com/">W3layouts</a></p>
+				</div>
+			</div>
+			<!---- footer ---->
+	</body>
 </html>
 
