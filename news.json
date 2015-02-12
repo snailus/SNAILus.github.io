@@ -2,12 +2,12 @@
 {
     "news":[
         {
-            "date": "Feb 2015",
+            "date": "Feb, 4 2015",
             "label": "Update",
             "text": "This website is now hosted with github webpages."            
         },
         {
-            "date": "Jan 2015",
+            "date": "Jan, 5 2015",
             "label": "Newcomer",
             "text": "<a href='https://abizeau.github.io'>Alexandre Bizeau</a> joins the group for a Master's degree. He'll work on human brain vascular segmentation."
         },
