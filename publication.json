@@ -1,0 +1,41 @@
+
+{
+    "publication":[
+        {
+            "link": "#",
+            "title": "Failure of the standard fMRI analysis in the visual cortex using a smooth visual stimulus, power pitch (oral and e-poster presentation), ISMRM 2015, Toronto, Canada",
+            "author": "David Provencher",
+            "coauthor": "Andreas Bartels, Yves Bérubé-Lauzière and Kevin Whittingstall",
+            "release": "2015",
+            "ptype": "Abstract",
+            "tag": ["neurovascular coupling", "hemodynamic response function", "fMRI", "EEG"]
+        },
+        {
+            "link": "#",
+            "title": "Hemodynamic response function estimation in the visual cortex during sinusoidal visual stimuli, poster presentation, OHBM 2014, Hamburg, Germany.",
+            "author": "David Provencher",
+            "coauthor": "Andreas Bartels, Yves Bérubé-Lauzière and Kevin Whittingstall",
+            "release": "2014",
+            "ptype": "Poster",
+            "tag": ["neurovascular coupling", "hemodynamic response function", "fMRI", "EEG"]
+        },
+        {
+            "link": "#",
+            "title": "Caractérisation de la fonction de réponse hémodynamique dans le cortex visuel par analyse de signaux IRMf et LORETA, oral presentation, Journée scientifique CIMS-AIM 2013, Sherbrooke, Canada. (CNS)",
+            "author": "David Provencher",
+            "coauthor": "Andreas Bartels, Yves Bérubé-Lauzière and Kevin Whittingstall",
+            "release": "2013",
+            "ptype": "Presentation",
+            "tag": ["neurovascular coupling", "hemodynamic response function", "fMRI", "EEG"]
+        },
+        {
+            "link": "#",
+            "title": "Caractérisation de la fonction de réponse hémodynamique dans le cortex visuel par analyse de signaux IRMf et LORETA, oral presentation, Journée scientifique CIMS-AIM 2013, Sherbrooke, Canada. (CIMS)",
+            "author": "David Provencher",
+            "coauthor": "Andreas Bartels, Yves Bérubé-Lauzière and Kevin Whittingstall",
+            "release": "2013",
+            "ptype": "Presentation",
+            "tag": ["neurovascular coupling", "hemodynamic response function", "fMRI", "EEG"]
+        }         
+    ]
+}
