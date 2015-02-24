@@ -1,7 +1,6 @@
 Website todo :
 
 - Fill  publications via database
-- Arranger les dates lors du clique sur calendrier. (Timezone)
 - Fill member page with json ?
 - Project page ?
 

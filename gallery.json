@@ -48,6 +48,18 @@
             ]
         },
         {
+            "name": "Michaël Bernier",
+            "element": [
+                {
+                    "albumname": "Bernier",
+                    "linkref": "images/gallery/group_mean_tract.jpg",
+                    "text": "Brain activation",
+                    "title": "Activation",
+                    "imgsource": "images/gallery/group_mean_tract_thumbnail.jpg"
+                }
+            ]
+        },
+        {
             "name": "Others",
             "element": [
                 {
