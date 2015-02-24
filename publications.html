@@ -76,12 +76,19 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 var publicationsList = document.getElementById("PublicationsList");
 
                 $.getJSON("publication.json", function(json) {
-                    json.publication.forEach(function(item){
-                        //var newItem = document.createElement('li');                
-                        
-                        $('.list').append('<li><a href=""' + item.link + '""><img src="images/smallpdf.png" class="img_left"></img></a><p class="title"> ' + item.title + '</p> <p class="author">' + item.author + '</p><p class="coauthor"> ' + item.coauthor + '</p><p class="release">' + item.release + '</p><br><p class="ptype"><span class="ptype">' + item.ptype +'</span></p> ' + addTag(item.tag) +'</li>');                
+                    json.publication.forEach(function(item){  
+    
+                        var pubString = "<li>";
+
+                        if(item.link != "#")
+                        {
+                            pubString += '<a href=""' + item.link + '""><img src="images/smallpdf.png" class="img_left"></img></a>';
+                        }
+
+                        pubString += '<p class="title"> ' + item.title + '</p> <p class="author">' + item.author + '</p><p class="coauthor"> ' + item.coauthor + '</p><p class="release">' + item.release + '</p><br><p class="ptype"><span class="ptype">' + item.ptype +'</span></p> ' + addTag(item.tag) +'</li>'
+
+                        $('.list').append(pubString);                
                     });
-                    console.log("item added");
                     createListObject(); 
                 });
                      
@@ -287,7 +294,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                         <option value="Conference">Conference</option>
                                         <option value="Poster">Poster</option>
                                         <option value="Presentation">Presentation</option>
-                                        <option value="Thesis">Thesis</option>
+                                        <option value="MSc Thesis">MSc Thesis</option>
+                                        <option value="PhD Thesis">PhD Thesis</option>
                                     </select>   
                                     
                                     <input type="text" name="tags" placeholder="Tags" class="tm-input"/>                            
