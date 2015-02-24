@@ -286,7 +286,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                     
                                     // Display the attachments name and image to view and download the contain.
                                     content += googleId[0] + ' : ';
-                                    content += '<a href="https://drive.google.com/open?id=' + googleId[1] + '&authuser=0"><img src="images/viewIconv2.png"></img></a>';
+                                    content += '<a href="https://drive.google.com/open?id=' + googleId[1] + '&authuser=0" target="_blank"><img src="images/viewIconv2.png"></img></a>';
                                     content += '<a href="https://drive.google.com/uc?export=download&id=' + googleId[1] + '&authuser=0"><img src="images/downloadIconv2.png" style="margin:5px;"></img></a>';
                                     content += '</br>';
                                 }
@@ -299,7 +299,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                         }
                     
                         // Add the url to the google event.
-                        content += '<p><a style="color:#fe5433;" href="' + data.url +'">For more information</a></p>';                            
+                        content += '<p><a style="color:#fe5433;" href="' + data.url +'" target="_blank">For more information</a></p>';                            
 
                         tooltip.set({
                             'content.text': content,
