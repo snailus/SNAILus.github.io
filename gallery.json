@@ -30,20 +30,6 @@
                     "text": "Infiltration",
                     "title": "Infiltration",
                     "imgsource": "images/gallery/cerebral_p.png"
-                },
-                {
-                    "albumname": "Chamberland",
-                    "linkref": "images/gallery/bluefibershd.png",
-                    "text": "Blue",
-                    "title": "Blue",
-                    "imgsource": "images/gallery/bluefibers.png"
-                },
-                {
-                    "albumname": "Chamberland",
-                    "linkref": "images/gallery/colorfull.png",
-                    "text": "Fluid",
-                    "title": "Fluid",
-                    "imgsource": "images/gallery/colorfull_t.png"
                 }
             ]
         },

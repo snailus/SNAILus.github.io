@@ -8,14 +8,16 @@
 	
     .container_12 .grid_1 				{width:215px;}
 	.container_12 .grid_3 				{width:215px;}
+    .container_12 .grid_4 				{width:300px;}
 	.container_12 .grid_9 				{width:725px;}
+    
 	
 /* Global Classes */
 
 	.hr									{border:none; border-bottom:1px solid #f0f0f0; border-top:1px solid #d6d6d6; clear:both; height:0; line-height:0; width:100%; font-size:0; padding:0 ;margin-bottom :20px;}
 	.pr									{border:none; border-bottom:1px solid #f0f0f0; border-top:1px solid #d6d6d6; clear:both; height:0; line-height:0; width:100%; font-size:0; padding:0; margin-bottom :30px;}
 	.dotted								{border-style:dashed; border-left:0; border-right:0;}	
-	.meta								{font-weight:normal;font-family:'Lucida Grande', 'Lucida Sans Unicode', Tahoma, Arial, san-serif; font-size:11px; color:#999999 !important; line-height:16px; text-transform:none; text-shadow:none;}
+	.meta								{font-weight:normal;font-family:'Lucida Grande', 'Lucida Sans Unicode', Tahoma, Arial, san-serif; font-size:11px; color:#999999 !important; line-height:16px; text-transform:none; text-shadow:none;margin-bottom:10px;}
 	.right								{float:right;}
 	.left								{float:left;}
 	.img_left							{float:left; margin:10px 20px 10px 0;}

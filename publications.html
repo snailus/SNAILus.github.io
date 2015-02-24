@@ -82,10 +82,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
                         if(item.link != "#")
                         {
-                            pubString += '<a href=""' + item.link + '""><img src="images/smallpdf.png" class="img_left"></img></a>';
+                            pubString += '<a href="' + item.link + '" target="_blank"><img src="images/smallpdf.png" class="img_left firstline"></img></a>';
                         }
 
-                        pubString += '<p class="title"> ' + item.title + '</p> <p class="author">' + item.author + '</p><p class="coauthor"> ' + item.coauthor + '</p><p class="release">' + item.release + '</p><br><p class="ptype"><span class="ptype">' + item.ptype +'</span></p> ' + addTag(item.tag) +'</li>'
+                        pubString += '<p class="title firstline"> ' + item.title + '</p><br><p class="author">' + item.author + '</p><p class="coauthor"> ' + item.coauthor + '</p><p class="release">' + item.release + '</p><br><p class="ptype"><span class="ptype">' + item.ptype +'</span></p> ' + addTag(item.tag) +'</li>'
 
                         $('.list').append(pubString);                
                     });

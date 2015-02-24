@@ -62,7 +62,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     json.photos.forEach(function(item){
                         
                         var headerDiv = document.createElement('div');
-
+                    
                     
                         headerDiv.setAttribute('class',"grid_4 textright");
 
@@ -75,7 +75,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                             var photoLink = document.createElement('a');
 
                             if(i%3 == 0){
-                                photoLink.setAttribute('class',"fancybox portfolio_item float alpha");
+                                photoLink.setAttribute('class',"fancybox portfolio_item float alpha ");
                             }else if(i%3 == 1){
                                 photoLink.setAttribute('class',"fancybox portfolio_item float");
                             }else{
@@ -95,7 +95,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                 photoGallery.appendChild(line);
                             }
                         } //End for loop
-                    
+                        var clearDiv = document.createElement('div');
+                        clearDiv.setAttribute('class',"clearfix");
+                        clearDiv.innerHTML = '&nbsp;';
+                        photoGallery.appendChild(clearDiv);
                     });
 
                     json.videos.forEach(function(item){
@@ -133,7 +136,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                 var line = document.createElement("br");
                                 videoGallery.appendChild(line);
                             }
-                        } //End for loop                    
+                        } //End for loop    
+                        var clearDiv = document.createElement('div');
+                        clearDiv.setAttribute('class',"clearfix");
+                        clearDiv.innerHTML = '&nbsp;';
+                        videoGallery.appendChild(clearDiv);                
                     });
                 });// End get json
                 $(".fancybox").fancybox();
@@ -188,7 +195,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
             <div class="container">	
 			    <div class="hr grid_12 clearfix">&nbsp;</div>			
                     <!-- Catch Line and Link -->
-                    <h2 class="grid_1 caption clearfix">Gallery (This page is under construction)</h2>  
+                    <h2 class="grid_1 caption clearfix">Gallery</h2>  
 
                     
                     <div class="pr grid_12 clearfix">&nbsp;</div>
