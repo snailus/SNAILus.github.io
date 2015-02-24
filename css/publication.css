@@ -17,15 +17,14 @@
 }
 
 #publicationsList img {
-    margin-right:20px;
-    margin-bottom:5px;
+    margin-right:10px;
 }
 
 #publicationsList ul li{
     padding:10px;
 }
 #publicationsList ul li.firstline{
-    display:inline-block;
+    display:inline;
 }
 
 #publicationsList ul li span.arrow{
@@ -40,26 +39,36 @@
 #publicationsList ul li p.title{
     color:#fe5433;
 	font-weight:300;
-	margin:0;
 	line-height:1.5em;
-	font-size:25px;
+	font-size:20px;
     
 }
 
 #publicationsList ul li p.author{
 	font-weight:300;
-	margin:0;
+	margin-right:5px;
 	line-height:1.5em;
 	font-size:18px;
 }
+
+#publicationsList ul li p.coauthor{
+	margin-right:5px;
+}
+#publicationsList ul li p.release{
+	color:#fe5433;
+    font-size:15px;
+    margin-bottom:10px;
+}
+
 
 #publicationsList ul li p{
 	font-weight:300;
 	margin:0;
 	line-height:1.5em;
 	font-size:13px;
-    display:inline-block;
+    display:inline;
 }
+
 
 #publicationsList ul li p span.ptype{
     color: #4594b5;

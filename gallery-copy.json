@@ -1,0 +1,89 @@
+{
+    "photos": [
+        {
+            "name": "Maxime Chamberland",
+            "element": [
+                {
+                    "albumname": "Chamberland",
+                    "linkref": "images/gallery/fibers_big.png",
+                    "text": "Image representing the fiber with sagital view.",
+                    "title": "Fiber",
+                    "imgsource": "images/gallery/fibers.png"
+                },
+                {
+                    "albumname": "Chamberland",
+                    "linkref": "images/gallery/glow.png",
+                    "text": "Tumor",
+                    "title": "Tumor",
+                    "imgsource": "images/gallery/tumor.png"
+                },
+                {
+                    "albumname": "Chamberland",
+                    "linkref": "images/gallery/mesh.png",
+                    "text": "Fluid",
+                    "title": "Fluid",
+                    "imgsource": "images/gallery/CSF.png"
+                },
+                {
+                    "albumname": "Chamberland",
+                    "linkref": "images/gallery/cerebral.png",
+                    "text": "Infiltration",
+                    "title": "Infiltration",
+                    "imgsource": "images/gallery/cerebral_p.png"
+                }
+            ]
+        },
+        {
+            "name": "Michaël Bernier",
+            "element": [
+                {
+                    "albumname": "Bernier",
+                    "linkref": "images/gallery/group_mean_tract.jpg",
+                    "text": "Brain activation",
+                    "title": "Activation",
+                    "imgsource": "images/gallery/group_mean_tract_thumbnail.jpg"
+                }
+            ]
+        },
+        {
+            "name": "Others",
+            "element": [
+                {
+                    "albumname": "Others",
+                    "linkref": "images/logo4.png",
+                    "text": "UdeS logo",
+                    "title": "UdeS",
+                    "imgsource": "images/logo4.png"
+                }
+            ]
+        }
+    ],
+    "videos": [
+        {
+            "name": "Maxime Chamberland",
+            "element": [
+                {
+                    "albumname": "Chamberland",
+                    "linkref": "http://www.youtube.com/embed/t5KwiwMa6G0",
+                    "text": "Doctor David Fortin Ted talk.",
+                    "title": "TedX",
+                    "imgsource": "images/gallery/ted.png"
+                },
+                {
+                    "albumname": "Chamberland",
+                    "linkref": "https://www.youtube.com/embed/Xm3tsTd9jb8",
+                    "text": "UdeS",
+                    "title": "UdeS",
+                    "imgsource": "images/gallery/dave.png"
+                },
+                {
+                    "albumname": "Chamberland",
+                    "linkref": "http://www.youtube.com/embed/Kdwm7cQv5PQ",
+                    "text": "Real-time in Fibernavigator",
+                    "title": "Real-time",
+                    "imgsource": "images/gallery/rtt.png"
+                }
+            ]
+        }
+    ]
+}

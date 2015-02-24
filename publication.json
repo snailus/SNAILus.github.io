@@ -1,0 +1,130 @@
+
+{
+    "publication":[
+        {
+            "link": "https://www.dropbox.com/s/xyer5pjmlbhfv1r/ISMRM_abstract.pdf?dl=0",
+            "title": "Failure of the standard fMRI analysis in the visual cortex using a smooth visual stimulus, power pitch (oral and e-poster presentation), ISMRM 2015, Toronto, Canada",
+            "author": "David Provencher",
+            "coauthor": "Andreas Bartels, Yves Bérubé-Lauzière and Kevin Whittingstall",
+            "release": "2015",
+            "ptype": "Abstract",
+            "tag": ["neurovascular coupling", "hemodynamic response function", "fMRI", "EEG"]
+        },
+        {
+            "link": "#",
+            "title": "Using fMRI non-local means denoising to uncover activation in sub-cortical structures at 1.5 T for guided HARDI tractography",
+            "author": "Michaël Bernier",
+            "coauthor": "M. Chamberland, J.-C. Houde, M. Descoteaux and K.Whittingstall",
+            "release": "2014",
+            "ptype": "Book Chapter",
+            "tag": ["fMRI","Non-local mean","HARDI","Tractography"]
+        },
+        {
+            "link": "#",
+            "title": "Using fMRI non-local means denoising to uncover activation in sub-cortical structures at 1.5 T for guided HARDI tractography",
+            "author": "Michaël Bernier",
+            "coauthor": "K.Whittingstall",
+            "release": "2014",
+            "ptype": "Poster",
+            "tag": ["fMRI","Non-local mean","HARDI","Tractography"]
+        },
+        {
+            "link": "#",
+            "title": "Uncovering a visuospatial network at rest",
+            "author": "Maxime Chamberland",
+            "coauthor": "M. Bernier, D. Fortin, M. Descoteaux and K. Whittingstall",
+            "release": "2014",
+            "ptype": "Poster",
+            "tag": ["Visualization","Tractography"]
+        },
+        {
+            "link": "#",
+            "title": "Towards an automatic segmentation of the LGN: fiber bundle filtering technique",
+            "author": "Emmanuelle Renauld",
+            "coauthor": "M. Bernier, E. Garyfallidis, M. Descoteaux and K. Whittingstall",
+            "release": "2014",
+            "ptype": "Poster",
+            "tag": ["Segmentation","LGN"]
+        },
+        {
+            "link": "#",
+            "title": "Link between function and structure in the resting-state brain: an fMRI et VBM study",
+            "author": "Nicolas Vigneau-Roy",
+            "coauthor": "M. Bernier, M. Descoteaux and K. Whittingstall",
+            "release": "2014",
+            "ptype": "Poster",
+            "tag": ["Segmentation","Vascular system","BOLD","fMRI"]
+        },
+        {
+            "link": "https://www.dropbox.com/s/95seud0iobeshg2/posterHBM.pdf?dl=0",
+            "title": "Hemodynamic response function estimation in the visual cortex during sinusoidal visual stimuli, poster presentation, OHBM 2014, Hamburg, Germany.",
+            "author": "David Provencher",
+            "coauthor": "Andreas Bartels, Yves Bérubé-Lauzière and Kevin Whittingstall",
+            "release": "2014",
+            "ptype": "Poster",
+            "tag": ["neurovascular coupling", "hemodynamic response function", "fMRI", "EEG"]
+        },
+        {
+            "link": "#",
+            "title": "Regional variations in vascular density correlate with resting-state and task-evoked blood oxygen level-dependent signal amplitude",
+            "author": "Nicolas Vigneau-Roy",
+            "coauthor": "M. Bernier, M. Descoteaux and K. Whittingstall",
+            "release": "2013",
+            "ptype": "Book chapter",
+            "tag": ["Segmentation","Vascular system","BOLD"]
+        },
+        {
+            "link": "#",
+            "title": "Structural network underlying visuospatial imagery in humans",
+            "author": "Kevin Whittingstall",
+            "coauthor": "M. Bernier, J.-C. Houde, D. Fortin and M. Descoteaux",
+            "release": "2013",
+            "ptype": "Book chapter",
+            "tag": ["neurovascular coupling", "hemodynamic response function", "fMRI", "EEG"]
+        },
+        {
+            "link": "https://www.dropbox.com/s/oym3mxi7pyq8gl9/CNS_2013_DavidProvencher.pptx?dl=0",
+            "title": "Caractérisation de la fonction de réponse hémodynamique dans le cortex visuel par analyse de signaux IRMf et LORETA (CNS)",
+            "author": "David Provencher",
+            "coauthor": "Andreas Bartels, Yves Bérubé-Lauzière and Kevin Whittingstall",
+            "release": "2013",
+            "ptype": "Presentation",
+            "tag": ["neurovascular coupling", "hemodynamic response function", "fMRI", "EEG"]
+        },
+        {
+            "link": "https://www.dropbox.com/s/fm511maxwn8h855/CIMS_2013_DavidProvencher.pptx?dl=0",
+            "title": "Caractérisation de la fonction de réponse hémodynamique dans le cortex visuel par analyse de signaux IRMf et LORETA (CIMS)",
+            "author": "David Provencher",
+            "coauthor": "Andreas Bartels, Yves Bérubé-Lauzière and Kevin Whittingstall",
+            "release": "2013",
+            "ptype": "Presentation",
+            "tag": ["neurovascular coupling", "hemodynamic response function", "fMRI", "EEG"]
+        },
+        {
+            "link": "#",
+            "title": "Functional connectivity of fMRI activation clusters projected in resting state-space",
+            "author": "Michaël Bernier",
+            "coauthor": "K.Whittingstall",
+            "release": "2012",
+            "ptype": "Poster",
+            "tag": ["fMRI","Activation","Cluster","Resting state"]
+        },
+        {
+            "link": "#",
+            "title": "Recalage multi-modal automatique : Technique de multi-résolution parallèle appliquée à la TEP et l'IRM",
+            "author": "Michaël Bernier",
+            "release": "2012",
+            "ptype": "MSc Thesis",
+            "tag": ["MRI","PET","PCA","Image registration"]
+        },
+        {
+            "link": "#",
+            "title": "Combining parallel multiresolution and PCA initialization for a fully automatic PET-MRI registration",
+            "author": "Michaël Bernier",
+            "coauthor": "M. Lepage, R. Lecomte, L. Tremblay, L. Dore-Savard and M. Descoteaux",
+            "release": "2011",
+            "ptype": "Poster",
+            "tag": ["MRI","PET","PCA","Image registration"]
+        }       
+    ]
+}
