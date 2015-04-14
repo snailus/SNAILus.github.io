@@ -85,7 +85,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                             pubString += '<a href="' + item.link + '" target="_blank"><img src="images/smallpdf.png" class="img_left firstline"></img></a>';
                         }
 
-                        pubString += '<p class="title firstline"> ' + item.title + '</p><br><p class="author">' + item.author + '</p><p class="coauthor"> ' + item.coauthor + '</p><p class="release">' + item.release + '</p><br><p class="ptype"><span class="ptype">' + item.ptype +'</span></p> ' + addTag(item.tag) +'</li>'
+                        pubString += '<p class="title firstline"> ' + item.title + '</p><br><p class="author">' + item.author + '</p><p class="coauthor"> ' + item.coauthor + '</p><p class="related">' + item.related + '</p><p class="release">' + item.release + '</p><br><p class="ptype"><span class="ptype">' + item.ptype +'</span></p> ' + addTag(item.tag) +'</li>'
 
                         $('.list').append(pubString);                
                     });
@@ -124,6 +124,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 var title = document.forms["searchform"].elements["title"].value;
                 var author = document.forms["searchform"].elements["author"].value;
                 var coauthor = document.forms["searchform"].elements["coauthor"].value;
+                var related = document.forms["searchform"].elements["related"].value;
                 var release = document.forms["searchform"].elements["release"].value; 
                 var pType = document.forms["searchform"].elements["ptype"].value;                                
                 var tags = document.forms["searchform"].elements["hiddenTag"].value;
@@ -153,6 +154,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                 item.values().title.toLowerCase().search(title.toLowerCase()) >= 0 &&
                                 item.values().author.toLowerCase().search(author.toLowerCase()) >= 0 &&
                                 item.values().coauthor.toLowerCase().search(coauthor.toLowerCase()) >= 0 &&
+                                item.values().related.toLowerCase().search(related.toLowerCase()) >= 0 &&
                                 item.values().release < 2012 &&
                                 item.values().ptype.toLowerCase().search(pType.toLowerCase()) >= 0 &&
                                 tagArray.every(Boolean)
@@ -162,6 +164,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                 item.values().title.toLowerCase().search(title.toLowerCase()) >= 0 &&
                                 item.values().author.toLowerCase().search(author.toLowerCase()) >= 0 &&
                                 item.values().coauthor.toLowerCase().search(coauthor.toLowerCase()) >= 0 &&
+                                item.values().related.toLowerCase().search(related.toLowerCase()) >= 0 &&
                                 item.values().release.search(release) >= 0 &&
                                 item.values().ptype.toLowerCase().search(pType.toLowerCase()) >= 0 &&
                                 tagArray.every(Boolean)
@@ -173,6 +176,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                 item.values().title.toLowerCase().search(title.toLowerCase()) >= 0 &&
                                 item.values().author.toLowerCase().search(author.toLowerCase()) >= 0 &&
                                 item.values().coauthor.toLowerCase().search(coauthor.toLowerCase()) >= 0 &&
+                                item.values().related.toLowerCase().search(related.toLowerCase()) >= 0 &&
                                 item.values().release < 2012 &&
                                 item.values().ptype.toLowerCase().search(pType.toLowerCase()) >= 0 
                             )
@@ -181,6 +185,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                 item.values().title.toLowerCase().search(title.toLowerCase()) >= 0 &&
                                 item.values().author.toLowerCase().search(author.toLowerCase()) >= 0 &&
                                 item.values().coauthor.toLowerCase().search(coauthor.toLowerCase()) >= 0 &&
+                                item.values().related.toLowerCase().search(related.toLowerCase()) >= 0 &&
                                 item.values().release.search(release) >= 0 &&
                                 item.values().ptype.toLowerCase().search(pType.toLowerCase()) >= 0
                             )
@@ -272,7 +277,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                     <br><br>
                                     <input class="searchbox" type="text" name="title" placeholder="Publication title" >                                
                                     <input class="searchbox" type="text" name="author" placeholder="Author name">                                
-                                    <input class="searchbox" type="text" name="coauthor" placeholder="Co-author name">                                
+                                    <input class="searchbox" type="text" name="coauthor" placeholder="Co-author name"> 
+                                    <input class="searchbox" type="text" name="related" placeholder="Related to">                                       
                                     <br>
                                     
                                     Release date:
@@ -292,6 +298,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                         <option value="Article">Article</option>
                                         <option value="Book chapter">Book chapter</option>
                                         <option value="Conference">Conference</option>
+                                        <option value="Journal">Journal</option>
                                         <option value="Poster">Poster</option>
                                         <option value="Presentation">Presentation</option>
                                         <option value="MSc Thesis">MSc Thesis</option>
