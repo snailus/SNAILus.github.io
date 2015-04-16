@@ -32,16 +32,6 @@
             "tag": []
         },
         {
-            "link": "http://scil.dinf.usherbrooke.ca/wp-content/papers/vaillancourt-etal-dagstuhl15.pdf",
-            "title": "Visualization of Diffusion Propagator and Multiple Parameter Diffusion Signal",
-            "author": "Vaillancourt O.",
-            "coauthor": "Chamberland M., Houde J-C., Descoteaux M.",
-            "related": "In Visualization and Processing of Higher Order Descriptors for Multi-Valued Data, Springer",
-            "release": "2015",
-            "ptype": "Book chapter",
-            "tag": []
-        },
-        {
             "link": "https://www.dropbox.com/s/xyer5pjmlbhfv1r/ISMRM_abstract.pdf?dl=0",
             "title": "Failure of the standard fMRI analysis in the visual cortex using a smooth visual stimulus, power pitch (oral and e-poster presentation)",
             "author": "David Provencher",
@@ -132,26 +122,6 @@
             "tag": ["neurovascular coupling", "hemodynamic response function", "fMRI", "EEG"]
         },
         {
-            "link": "http://scil.dinf.usherbrooke.ca/wp-content/papers/chamberland-etal-ismrm2013.pdf",
-            "title": "Explore the brain white matter networks in real-time: Multi-sticks fiber tracking",
-            "author": "Chamberland M.",
-            "coauthor": "Descoteaux M.",
-            "related": "Proceeding of: International Society of Magnetic Resonance in Medicine (ISMRM), Salt Lake City, U.S",
-            "release": "2013",
-            "ptype": "Abstract",
-            "tag": []
-        },
-        {
-            "link": "http://www.sciencedirect.com/science/article/pii/S1053811913006678",
-            "title": "Collaborative Patch-Based Super-Resolution for Diffusion-Weighted Images",
-            "author": "Coupé P",
-            "coauthor": "Manjon J., Chamberland M., Descoteaux M., Hiba B.",            
-            "related": "Neuroimage",
-            "release": "2013",
-            "ptype": "Book chapter",
-            "tag": []
-        },
-        {
             "link": "#",
             "title": "Regional variations in vascular density correlate with resting-state and task-evoked blood oxygen level-dependent signal amplitude",
             "author": "Nicolas Vigneau-Roy",
@@ -192,26 +162,6 @@
             "tag": ["neurovascular coupling", "hemodynamic response function", "fMRI", "EEG"]
         },
         {
-            "link": "http://scil.dinf.usherbrooke.ca/wp-content/papers/Chamberland_MScThesis.pdf",
-            "title": "Visualisation en imagerie par résonance magnétique de diffusion: Tractographie en temps réel des fibres de la matière blanche du cerveau",
-            "author": "Chamberland M",
-            "coauthor": "Descoteaux M.",
-            "related": "M.Sc., Université de Sherbrooke",
-            "release": "2013",
-            "ptype": "MSc Thesis",
-            "tag": []
-        },
-        {
-            "link": "http://scil.dinf.usherbrooke.ca/wp-content/papers/chamberland-etal-hbm12.pdf",
-            "title": "Real-Time Fiber Tractography: Interactive Parameter Tuning for Neurosurgical Interventions",
-            "author": "Chamberland M.",
-            "coauthor": "Fortin D. and Descoteaux M.",
-            "related": "In Proceedings of OHBM 2012, Beijing, China,",
-            "release": "2012",
-            "ptype": "Abstract",
-            "tag": []
-        },
-        {
             "link": "#",
             "title": "Functional connectivity of fMRI activation clusters projected in resting state-space",
             "author": "Michaël Bernier",
@@ -229,16 +179,6 @@
             "release": "2012",
             "ptype": "MSc Thesis",
             "tag": ["MRI","PET","PCA","Image registration"]
-        },
-        {
-            "link": "https://www.dropbox.com/s/gk0hsrrlsi114pp/OHBM15_MC.pdf?dl=0",
-            "title": "Neurosurgical tracking at the Sherbrooke Connectivity Imaging Lab (SCIL)",
-            "author": "Girard G",
-            "coauthor": "Chamberland M., Houde J-C, Fortin D., Descoteaux M.",
-            "related": "MICCAI DTI-Challenge, Nice, France",
-            "release": "2012",
-            "ptype": "Conference",
-            "tag": []
         },
         {
             "link": "#",
