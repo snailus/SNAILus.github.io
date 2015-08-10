@@ -23,7 +23,19 @@
                     "imgsource": "images/gallery/russel_slice_direction_thumbnail.png"
                 }
             ]
-        },          
+        },     
+        {
+            "name": "Alexandre Bizeau",
+            "element": [
+                {
+                    "albumname": "Bizeau",
+                    "linkref": "images/gallery/ArterialContour.png",
+                    "text": "Arterial segmentation with contour rendering.",
+                    "title": "Arterial",
+                    "imgsource": "images/gallery/ArterialContour_thumbnail.png"
+                }
+            ]
+        },     
         {
             "name": "Others",
             "element": [
