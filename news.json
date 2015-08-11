@@ -2,6 +2,26 @@
 {
     "news":[
         {
+            "date": "Jul, 6 2015",
+            "label": "Newcomer",
+            "text": "Claudie Gauvreau joins the group for a Master's degree. She'll do associative TMS combine with fMRI studies."
+        },
+        {
+            "date": "Jul, 6 2015",
+            "label": "Newcomer",
+            "text": "Sukhmanjit Ghumman joins the group for a Master's degree. He'll try to understand the effect of the cerebral tumor on the brain network."
+        },
+        {
+            "date": "Jun, 2015",
+            "label": "Conference",
+            "text": "Michael Bernier, Russell Butler, Maxime Chamberland, Gabriel Girard and David Provencher went to <a href='http://ohbm.loni.usc.edu/' target='_blank'> OHBM in Hawaii.</a>"  
+        },
+        {
+            "date": "Jun, 2015",
+            "label": "Conference",
+            "text": "Michael Bernier, Maxime Chamberland, Gabriel Girard, Vincent Méthot and David Provencher went to <a href='http://www.ismrm.org/15/' target='_blank'>ISMRM in Toronto.</a>"  
+        }
+        {
             "date": "Feb, 4 2015",
             "label": "Update",
             "text": "This website is now hosted with github webpages."            

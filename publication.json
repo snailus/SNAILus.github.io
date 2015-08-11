@@ -2,6 +2,26 @@
 {
     "publication":[
         {
+            "link": "https://drive.google.com/open?id=0B_k0rr4aWmshWnE3YlV6THRDS3c",
+            "title": "Simple stimulus manipulation decouples Gamma power and BOLD in human V1",
+            "author": "Butler R.",
+            "coauthor": "Bernier P-M., Whittingstall K.",
+            "related": "In Proceedings of OHBM 2015, Honolulu, Hawaii",
+            "release": "2015",
+            "ptype": "Poster",
+            "tag": ["Gamma", "fMRI", "BOLD", "EEG"]
+        },
+        {
+            "link": "https://drive.google.com/open?id=0B_k0rr4aWmshMTZndC1PR2RPQzQ",
+            "title": "Studying white matter tractography reproducibility through connectivity matrices",
+            "author": "Girard G.",
+            "coauthor": "Whittingstall K., Deriche R., Descoteaux M.",
+            "related": "In Proceedings of OHBM 2015, Honolulu, Hawaii and </br> Proceeding of: International Society of Magnetic Resonance in Medicine (ISMRM), Toronto, Canada",
+            "release": "2015",
+            "ptype": "Abstract",
+            "tag": ["Connectivity", "Tractography", "White matter", "diffusion MRI"]
+        },
+        {
             "link": "https://www.dropbox.com/s/gk0hsrrlsi114pp/OHBM15_MC.pdf?dl=0",
             "title": "Tractography-driven resting-state fMRI for investigating inter-subject variability",
             "author": "Chamberland M.",
