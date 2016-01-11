@@ -38,13 +38,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         
         <!----Tag manager--->
         <link rel="stylesheet" href="css/tagmanager.css">
-        <script src="js/tagmanager.js"></script>        
+        <script src="js/tagmanager.js"></script> 
+       
         <!----//Tag manager--->
         
         <!----Search engine + List--->
         <link rel="stylesheet" href="css/publication.css">
-
-        <script type="text/javascript" src="js/list.js"></script>
         <script>
             function displayAdv(){
                 
@@ -67,12 +66,13 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <!----//Search engine + List--->
 
         
+        <script type="text/javascript" src="js/list.js"></script>
 
         <!-- Publications feed -->
         <script type="text/javascript">
 
             var searchList = '';
-            $( document ).ready(function() {          
+            $( document ).ready(function() {                
                 var publicationsList = document.getElementById("PublicationsList");
 
                 $.getJSON("publication.json", function(json) {
@@ -85,7 +85,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                             pubString += '<a href="' + item.link + '" target="_blank"><img src="images/smallpdf.png" class="img_left firstline"></img></a>';
                         }
 
-                        pubString += '<p class="title firstline"> ' + item.title + '</p><br><p class="author">' + item.author + '</p><p class="coauthor"> ' + item.coauthor + '</p><br><p class="related">' + item.related + '</p>  <p class="release">' + item.release + '</p><br><p class="ptype"><span class="ptype">' + item.ptype +'</span></p> ' + addTag(item.tag) +'</li>'
+                        pubString += '<p class="title firstline"> ' + item.title + '</p><br><p class="author">' + item.author + '</p><p class="coauthor"> ' + item.coauthor + '</p><br><p class="related">' + item.related + '</p><p class="release">' + item.release + '</p><br><p class="ptype"><span class="ptype">' + item.ptype +'</span></p> ' + addTag(item.tag) +'</li>'
 
                         $('.list').append(pubString);                
                     });
@@ -98,7 +98,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 var options = {
                   valueNames: [ 'title','author','coauthor', 'related', 'release','ptype','tag' ]
                 };
-                
+
                 searchList = new List('publicationsList', options);  
                                       
                 searchList.on('filterComplete',listUpdated);
@@ -144,7 +144,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                 tagArray.push(false);
                             }                                            
                         });
-
+                        
                         // TODO :
                         // With tagArray, contain only asked tag, or at least one ?
                         // Currently asking for all.
@@ -169,7 +169,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                 item.values().ptype.toLowerCase().search(pType.toLowerCase()) >= 0 &&
                                 tagArray.every(Boolean)
                             )
-                    }else{                    
+                    }else{                                    
+                    
                         if(release == "under")
                             return ( 
                                 item.values().title.toLowerCase().search(title.toLowerCase()) >= 0 &&
@@ -206,7 +207,22 @@ License URL: http://creativecommons.org/licenses/by/3.0/
             }
         </script>                   
 
+
+               <!-- Example :
+                                <li>
+                                    <a href="[Insert URL to the publication]"><img src="images/smallpdf.png" class="img_left"/></a>
+                                    <p class="title"> [Insert publication title here]</p>
+                                    <p class="author"> [Insert the publication author name here]</p>
+                                    <p class="coauthor"> [Insert the publication co-authors names here]</p>
+                                    <p class="release">[Insert date here, 4 digit]</p> 
+                                    <br> <!-- Seperate Tags from publications informations -->    
+                                    <!-- <p class="ptype"><span class="ptype">[Insert one of those type : Abstract - Article - Thesis - Book chapter - Poster - Presentation Conference. If not listed please add to ptype list.]</span></p>
+                                    <p class="tag">[ Insert list of tag here with the following pattern : <span class="tag">{Tag word}</span>] </p>                             
+                                </li>
+                                -->
+
         <!--// Publications feed -->
+
 
 	</head>
 	<body>
@@ -302,10 +318,22 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                     <input class="button" type="reset" value="clear" onClick="clearForm()">  
                                 </div>
                             </form>
-                            <br><br> 
-
+                            <br><br>                                                     
+                                       
                             <ul class="list">
-                            </ul>      
+                                <!-- Example :
+                                <li>
+                                    <a href="[Insert URL to the publication]"><img src="images/smallpdf.png" class="img_left"/></a>
+                                    <p class="title"> [Insert publication title here]</p>
+                                    <p class="author"> [Insert the publication author name here]</p>
+                                    <p class="coauthor"> [Insert the publication co-authors names here</p>
+                                    <p class="release">[Insert date here, 4 digit]</p> 
+                                    <br> <!-- Seperate Tags from publications informations -->    
+                                    <!-- <p class="ptype"><span class="ptype">[Insert one of those type : Abstract - Article - Thesis - Book chapter - Poster - Presentation Conference. If not listed please add to ptype list.]</span></p>
+                                    <p class="tag">[ Insert list of tag here with the following pattern : <span class="tag">{Tag word}</span>] </p>                             
+                                </li>
+                                -->                               
+                            </ul>  
                             <div id="NoResult" style="display:none;">
                                 <p> Sorry, no publications matched your search. Please try again. </p>
                             </div>
@@ -340,8 +368,18 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 								<li><a href="photo.html">Gallery</a></li>
 								<li><a href="contact.html">Contact</a></li>								
 							</ul>
-						</div>                               
+						</div>                                
                               
+                        <!--
+						<div class="col-md-3 footer-grid ftr-sec wow fadeInRight" data-wow-delay="0.4s">
+							<h3>Follows</h3>
+							<ul class="social-icons">
+								<li><a class="twitter" href="#"><span> </span>twitter</a></li>
+								<li><a class="facebook" href="#"><span> </span>Facebook</a></li>
+								<li><a class="googlepluse" href="#"><span> </span>google+</a></li>								
+							</ul>
+						</div>
+                        -->
 						<div class="col-md-3 footer-grid ftr-sec ftr wow fadeInRight" data-wow-delay="0.4s">
 							<h3>Our Location</h3>
 							<ul class="location">
